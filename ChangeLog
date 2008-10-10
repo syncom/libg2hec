@@ -1,3 +1,14 @@
+2008-10-09  Ning Shang  <syncom@gmail.com>
+
+	* doc/g2hecdoc.texi: Documentation updated.
+
+	* include/g2hec_Genus2_ops.h: Bugfix: changed function signature of
+	divisor operator*() by adding `const' qualifier.
+
+	* Version controlled at https://g2hec.googlecode.com/svn/trunk/
+
+	* Fix to be announced in version 0.2.
+
 2008-09-03  Ning Shang  <syncom@gmail.com>
 
 	* src/testrand.C: A test unit for g2hec_rand() added.

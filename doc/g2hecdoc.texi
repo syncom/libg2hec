@@ -911,10 +911,10 @@ Setting @code{method} to @code{NULL} performs scalar multiplication via
 
 
 @*
-@code{divisor operator*(ZZ& n, divisor& a)}, @*
-@code{divisor operator*(divisor& a, ZZ& n)}, @*
-@code{divisor operator*(long n, divisor& a)}, @*
-@code{divisor operator*(divisor& a, long n)}: @*
+@code{divisor operator*(const ZZ& n, const divisor& a)}, @*
+@code{divisor operator*(const divisor& a, const ZZ& n)}, @*
+@code{divisor operator*(long n, const divisor& a)}, @*
+@code{divisor operator*(const divisor& a, long n)}: @*
 return @code{[n]a}. @code{SAM} is used for scalar multiplication.
 
 @node I/O, Randomness functions, Divisor arithmetic, Top

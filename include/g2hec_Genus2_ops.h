@@ -236,16 +236,16 @@ bool_t ML(divisor& x, const divisor& a, const ZZ& n);
   inline divisor operator-(const divisor& a)
   {divisor x; dnegate(x, a); return x;}
 
-  inline divisor operator*(long n, divisor& a)
+  inline divisor operator*(long n, const divisor& a)
   {divisor x; scalar_mul(x, a, n, NULL); return x;}
 
-  inline divisor operator*(divisor& a, long n)
+  inline divisor operator*(const divisor& a, long n)
   {divisor x; scalar_mul(x, a, n, NULL); return x;}
 
-  inline divisor operator*(ZZ& n, divisor& a)
+  inline divisor operator*(const ZZ& n, const divisor& a)
   {divisor x; scalar_mul(x, a, n, NULL); return x;}
 
-  inline divisor operator*(divisor& a, ZZ& n)
+  inline divisor operator*(const divisor& a, const ZZ& n)
   {divisor x; scalar_mul(x, a, n, NULL); return x;}
 
 /******************************************************\

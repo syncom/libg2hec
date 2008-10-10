@@ -1,0 +1,1 @@
+for i in `ls ./testdata/testdata_small*.dat` do ./testcurve < 

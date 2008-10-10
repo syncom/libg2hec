@@ -1,0 +1,20 @@
+2008-09-03  Ning Shang  <syncom@gmail.com>
+
+	* src/testrand.C: A test unit for g2hec_rand() added.
+
+	* src/rand.C (g2hec_rand): Function g2hec_rand() implementation.  It
+	tries to produce a random seed from /dev/urandom.  If it fails, the
+	random seed falls back to 0.
+
+	* include/g2hec_rand.h: Function g2hec_rand() added.  It produces a 
+	random seed (128-bit integer type ZZ). 
+
+2008-09-01  Ning Shang  <syncom@gmail.com>
+
+	* examples/elgmal.C: An example of local genus 2 elgmal encryption
+	scheme is added.
+
+	* examples/dh.C (main): An example of local genus 2 Diffie-Hellman key 
+	exchange is added.
+	
+

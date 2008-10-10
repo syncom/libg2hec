@@ -1,0 +1,19 @@
+#             -*- Autoconf -*-
+# Process this file with autoconf to produce a configuration file
+
+AC_INIT([g2hec-lib],
+        [0.0],
+        [Ning Shang <nshang@math.purdue.edu>])
+AC_CANONICAL_SYSTEM
+AC_CONFIG_SRCDIR([src/g2hcurve.c])
+AC_CONFIG_MACRO_DIR([m4])
+AC_CONFIG_AUX_DIR(config)
+AC_CONFIG_FILES([Makefile
+                src/Makefile])
+
+# Checks for programs
+AC_PROG_CC
+AC_PROG_INSTALL
+
+AM_INIT_AUTOMAKE
+AC_OUTPUT

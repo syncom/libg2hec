@@ -706,10 +706,10 @@ three methods are provided by G2HEC:
 
 Setting `method' to `NULL' performs scalar multiplication via `SAM'.
 
-`divisor operator*(ZZ& n, divisor& a)',
-`divisor operator*(divisor& a, ZZ& n)',
-`divisor operator*(long n, divisor& a)',
-`divisor operator*(divisor& a, long n)':
+`divisor operator*(const ZZ& n, const divisor& a)',
+`divisor operator*(const divisor& a, const ZZ& n)',
+`divisor operator*(long n, const divisor& a)',
+`divisor operator*(const divisor& a, long n)':
 return `[n]a'. `SAM' is used for scalar multiplication.
 
 
@@ -834,8 +834,8 @@ Node: Tutorial8833
 Node: Genus 2 curve functions18345
 Node: Divisor functions20390
 Node: Divisor arithmetic23290
-Node: I/O25378
-Node: Randomness functions27227
-Node: Some issues28743
+Node: I/O25414
+Node: Randomness functions27263
+Node: Some issues28779
 
 End Tag Table

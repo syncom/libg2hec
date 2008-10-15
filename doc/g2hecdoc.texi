@@ -185,7 +185,7 @@ The G2HEC library is dependent of V. Shoup's NTL library, which can be found at
 
 @*
 The following procedure should work on Unix and Unix-like platforms. The 
-installation has been tested on Linux and Solaris.
+installation has been tested on Linux and Solaris, and in Cygwin on Windows.
 
 @*
 To obtain the source code and documentation for G2HEC, download 

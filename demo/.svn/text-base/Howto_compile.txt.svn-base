@@ -1,1 +1,0 @@
-g++ -O2 -I$HOME/local/include -L$HOME/local/lib -o arithdemo.cgi arithdemo.C -lm -lg2hec -lntl

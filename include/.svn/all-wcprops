@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/svn/!svn/ver/3/trunk/include
+END
+g2hec_nstools.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/2/trunk/include/g2hec_nstools.h
+END
+g2hec_Genus2_ops.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/3/trunk/include/g2hec_Genus2_ops.h
+END
+g2hec_rand.h
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/2/trunk/include/g2hec_rand.h
+END
+g2hec_NAF.h
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/2/trunk/include/g2hec_NAF.h
+END
+g2hec_polytype.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/2/trunk/include/g2hec_polytype.h
+END
+g2hec_nsfieldtype.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/2/trunk/include/g2hec_nsfieldtype.h
+END
+g2hec_nsdebug.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/2/trunk/include/g2hec_nsdebug.h
+END
+version.h
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/2/trunk/include/version.h
+END

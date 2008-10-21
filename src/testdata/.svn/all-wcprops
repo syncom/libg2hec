@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/2/trunk/src/testdata
+END
+testdata_big00.dat
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/2/trunk/src/testdata/testdata_big00.dat
+END
+testdata_big01.dat
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/2/trunk/src/testdata/testdata_big01.dat
+END
+testdata_big02.dat
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/2/trunk/src/testdata/testdata_big02.dat
+END
+testdata_big03.dat
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/2/trunk/src/testdata/testdata_big03.dat
+END
+testdata_big04.dat
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/2/trunk/src/testdata/testdata_big04.dat
+END
+testdata_small00.dat
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/2/trunk/src/testdata/testdata_small00.dat
+END
+testdata_small01.dat
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/2/trunk/src/testdata/testdata_small01.dat
+END
+testdata_small02.dat
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/2/trunk/src/testdata/testdata_small02.dat
+END
+testdata_small03.dat
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/2/trunk/src/testdata/testdata_small03.dat
+END
+testdata_small04.dat
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/2/trunk/src/testdata/testdata_small04.dat
+END
+testdata_small05.dat
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/2/trunk/src/testdata/testdata_small05.dat
+END
+testdata_small06.dat
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/2/trunk/src/testdata/testdata_small06.dat
+END

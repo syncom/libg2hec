@@ -142,7 +142,12 @@ found at NTL: A Library for doing Number Theory
 (http://www.shoup.net/ntl/).
 
 The following procedure should work on Unix and Unix-like platforms. The
+<<<<<<< HEAD:doc/g2hecdoc.info
 installation has been tested on Linux and Solaris.
+=======
+installation has been tested on Linux and Solaris, and in Cygwin on
+Windows.
+>>>>>>> master:doc/g2hecdoc.info
 
 To obtain the source code and documentation for G2HEC, download
 g2hec-lib-xxx.tar.gz (http://www.math.purdue.edu/~nshang/g2hec/).  Here
@@ -829,6 +834,7 @@ Tag Table:
 Node: Top167
 Node: Overview813
 Node: Installation5204
+<<<<<<< HEAD:doc/g2hecdoc.info
 Node: Quick start8229
 Node: Tutorial8833
 Node: Genus 2 curve functions18345
@@ -837,5 +843,15 @@ Node: Divisor arithmetic23290
 Node: I/O25414
 Node: Randomness functions27263
 Node: Some issues28779
+=======
+Node: Quick start8255
+Node: Tutorial8859
+Node: Genus 2 curve functions18371
+Node: Divisor functions20416
+Node: Divisor arithmetic23316
+Node: I/O25440
+Node: Randomness functions27289
+Node: Some issues28805
+>>>>>>> master:doc/g2hecdoc.info
 
 End Tag Table

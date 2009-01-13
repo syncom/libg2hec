@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.61)
-AC_INIT([g2hec-lib], [0.1], [Ning Shang <nshang@math.purdue.edu>])
+AC_INIT([g2hec-lib], [0.1.1], [Ning Shang <nshang@math.purdue.edu>])
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/divisor_negate.C])
 AC_CONFIG_HEADER([config.h])

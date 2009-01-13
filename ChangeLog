@@ -1,3 +1,11 @@
+2009-01-13  Ning Shang  <syncom@gmail.com>
+
+	* configure.ac: version number updated to 0.1.1
+
+	* include/g2hec_Genus2_ops.h (class g2hcurve): Listened to Effective
+	C++. Replaced assignment in constructors with initialization list.
+	Added check for assignment to self in operator=.
+
 2008-10-09  Ning Shang  <syncom@gmail.com>
 
 	* doc/g2hecdoc.texi: Documentation updated.

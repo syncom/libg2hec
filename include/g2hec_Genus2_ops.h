@@ -69,23 +69,33 @@ class g2hcurve {
   bool_t is_genus_2;
 
   public:
-  g2hcurve() { // Default constructor points f, h to polynomial 0
-    is_genus_2 = is_nonsingular = FALSE;
-  }
+  g2hcurve()
+  : is_nonsingular(FALSE),
+    is_genus_2(FALSE)
+    { 
+      // Default constructor points f, h to polynomial 0
+    }
 
-  g2hcurve(const poly_tc& poly1, const poly_tc& poly2) { // C-tor
-    fpoly = poly1;    hpoly = poly2;
-  }
+  g2hcurve(const poly_tc& poly1, const poly_tc& poly2) 
+  : fpoly(poly1),
+    hpoly(poly2)
+    { 
+      // C-tor
+    }
 
-  g2hcurve(const g2hcurve& hcurve) { // Copy constructor
-    fpoly = hcurve.fpoly; 
-    hpoly = hcurve.hpoly;
-    is_nonsingular = hcurve.is_nonsingular;
-    is_genus_2 = hcurve.is_genus_2;
-  }
+  g2hcurve(const g2hcurve& hcurve) 
+  : fpoly(hcurve.fpoly),
+    hpoly(hcurve.hpoly),
+    is_nonsingular(hcurve.is_nonsingular),
+    is_genus_2(hcurve.is_genus_2)
+    { 
+      // Copy constructor
+    }
 
   g2hcurve& operator=(const g2hcurve& hcurve) // assignment
   {
+    if (this == &hcurve) return *this;
+
     fpoly = hcurve.fpoly;
     hpoly = hcurve.hpoly;
     is_nonsingular = hcurve.is_nonsingular;
@@ -132,19 +142,34 @@ class divisor {
 
  public:
   divisor() // Default C-tor. Set u=1, v=0, s_hcurve=default
+  : upoly(to_ZZ_pX(1)), 
+    vpoly(to_ZZ_pX(0)), 
+    is_valid(FALSE)
     {
-    upoly = 1; vpoly = 0; is_valid = FALSE;
+    
     }
 
   divisor(const poly_tc& polyu, const poly_tc& polyv, const g2hcurve& curve) 
 // C-tor
-  {upoly = polyu; vpoly = polyv; is_valid = FALSE; s_hcurve = curve;}
+  : upoly(polyu), 
+    vpoly(polyv),
+    is_valid(FALSE)
+  {
+    s_hcurve = curve; // static member
+  }
+
 
   divisor(const divisor& div) // Copy c-tor
-    {upoly = div.upoly; vpoly = div.vpoly; is_valid = div.is_valid; }
+  : upoly(div.upoly), 
+    vpoly(div.vpoly),
+    is_valid(div.is_valid)
+    {
+    }
 
   divisor& operator=(const divisor& div) // Assignment
     { 
+      if (this == &div) return *this;
+
       upoly = div.upoly; vpoly = div.vpoly; is_valid = div.is_valid;
       return *this;
     }

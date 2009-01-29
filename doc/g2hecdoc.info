@@ -1,9 +1,9 @@
 This is g2hecdoc.info, produced by makeinfo version 4.11 from
 g2hecdoc.texi.
 
-This is a help file for the g2hec library version 0.1.
+This is a help file for the g2hec library version 0.1.2.
 
-   Copyright (C) 2008 N. Shang.
+   Copyright (C) 2008-2009 N. Shang.
 
 
 File: g2hecdoc.info,  Node: Top,  Next: Overview
@@ -831,6 +831,7 @@ curve when performing divisor operations.
 
 
 Tag Table:
+<<<<<<< HEAD:doc/g2hecdoc.info
 Node: Top167
 Node: Overview813
 Node: Installation5204
@@ -852,6 +853,19 @@ Node: Divisor arithmetic23316
 Node: I/O25440
 Node: Randomness functions27289
 Node: Some issues28805
+>>>>>>> master:doc/g2hecdoc.info
+=======
+Node: Top174
+Node: Overview820
+Node: Installation5211
+Node: Quick start8262
+Node: Tutorial8866
+Node: Genus 2 curve functions18378
+Node: Divisor functions20423
+Node: Divisor arithmetic23323
+Node: I/O25447
+Node: Randomness functions27296
+Node: Some issues28812
 >>>>>>> master:doc/g2hecdoc.info
 
 End Tag Table

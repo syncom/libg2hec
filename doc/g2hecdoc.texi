@@ -1,20 +1,20 @@
 \input texinfo @c -*-texinfo-*-
 @c %** start of header 
 @setfilename g2hecdoc.info
-@settitle The Genus 2 Crypto C++ Library v0.1.1
+@settitle The Genus 2 Crypto C++ Library v0.1.2
 @c %** end of header
 
 @c %** Summary description and copyright. Appears only in info file.
 @ifinfo
-This is a help file for the g2hec library version 0.1.1.
+This is a help file for the g2hec library version 0.1.2.
 
-Copyright @copyright{} 2008 N. Shang.
+Copyright @copyright{} 2008-2009 N. Shang.
 @end ifinfo
 @c %** end of summary description and copyright
 
 @c %** Titlepage, contents, copyright
 @titlepage
-@title The Genus 2 Crypto C++ Library v0.1.1
+@title The Genus 2 Crypto C++ Library v0.1.2
 @author Ning Shang
 
 @c The following comments start the copyright page.

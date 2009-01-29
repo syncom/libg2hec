@@ -142,11 +142,13 @@ class divisor {
 
  public:
   divisor() // Default C-tor. Set u=1, v=0, s_hcurve=default
-  : upoly(to_ZZ_pX(1)), 
-    vpoly(to_ZZ_pX(0)), 
+  : 
+  //upoly(to_ZZ_pX(1)), 
+  //vpoly(to_ZZ_pX(0)), 
     is_valid(FALSE)
     {
-    
+      set(upoly); // upoly = 1
+      clear(vpoly); // vpoly = 0  
     }
 
   divisor(const poly_tc& polyu, const poly_tc& polyv, const g2hcurve& curve) 

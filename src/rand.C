@@ -17,6 +17,7 @@ ZZ g2hec_rand()
     return ZZ::zero();
    
   if ( read(fh, seed_c, SEED_NBYTES) != SEED_NBYTES )
+    close(fh);
     return ZZ::zero();
 
   close(fh);

@@ -1,3 +1,9 @@
+2012-03-30  Ning Shang  <geek@cerias.net>
+
+	* src/rand.C: Bug fix. Added missing brackets.
+
+	* configure.ac: version number updated to 0.1.4
+
 2009-01-13  Ning Shang  <syncom@gmail.com>
 
 	* configure.ac: version number updated to 0.1.1

@@ -11,7 +11,8 @@ It is built on top of V. Shoup's NTL library, "a high performance, portable
 C++ library providing data structures and algorithms for arbitrary length 
 integers; for vectors, matrices, and polynomials over the integers and over
 finite fields; and for arbitrary precision floating point arithmetic."  The
-NTL library homepage: http://www.shoup.net/ntl/.
+NTL library homepage: http://www.shoup.net/ntl/. G2HEC has been tested with
+NTL 5.5 on an x86_64 Ubuntu.
 
 It is recommended to build NTL using GMP (the GNU Multi-Precision package) 
 for best performance.  However, the G2HEC library can be built and used 

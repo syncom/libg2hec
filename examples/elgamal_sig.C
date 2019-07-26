@@ -18,6 +18,7 @@
 
 #include <g2hec_nsfieldtype.h>
 #include <g2hec_Genus2_ops.h>
+#include <unistd.h>
 
 #define f3 "2682810822839355644900736"
 #define f2 "226591355295993102902116"

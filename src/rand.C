@@ -3,6 +3,7 @@
 --*/
 
 #include <g2hec_rand.h>
+#include <unistd.h>
 
 NS_G2_START_IMPL
 

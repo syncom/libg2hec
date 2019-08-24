@@ -13,43 +13,44 @@ Note:
 #ifndef NSFIELDTYPE_H
 #define NSFIELDTYPE_H
 
+
 /**************************************************************/
 /*  To support ZZ_pE, must change the following to
-#define _FLD_TYPE ZZ_pE.  Default is ZZ_p.
+#define FLD_TYPE_ZZ_pE.  Default is FLD_TYPE_ZZ_p.
 
 I know, this is by no means convenient.  But the way in which NTL uses 
 different fields makes it hard to switch between different types easily.
 */
- #define _FLD_TYPE ZZ_p
+#define FLD_TYPE_ZZ_p
 /**************************************************************/
 
-  /* SET_POLY_TYPE(T) sets the type of the polynomials 
-  it needs to be invoked by the client before the polynomials 
-  are defined. 
-  Example: SET_POLY_TYPE(ZZ_pX)
-  */
-
-#define SET_POLY_TYPE(T) \
-typedef NTL_NNS _FLD_TYPE field_t; \
-typedef NTL_NNS T poly_t; \
-typedef const poly_t poly_tc
-
-#if _FLD_TYPE == ZZ_p
+#ifdef FLD_TYPE_ZZ_p
 
   #include <NTL/ZZ_pXFactoring.h>
 
-  SET_POLY_TYPE(ZZ_pX);
+  typedef NTL_NNS ZZ_p field_t;
+  typedef NTL_NNS ZZ_pX poly_t;
+  typedef const poly_t poly_tc;
 
-#elif _FLD_TYPE == ZZ_pE
+#endif
+
+
+#ifdef FLD_TYPE_ZZ_pE
   #include <NTL/ZZ_pEXFactoring.h>
 
-  SET_POLY_TYPE(ZZ_pEX);
+  typedef NTL_NNS ZZ_pE field_t;
+  typedef NTL_NNS ZZ_pEX poly_t;
+  typedef const poly_t poly_tc;
 
-#elif _FLD_TYPE == GF2
+#endif
+
+#ifdef FLD_TYPE_GF2
 
   #error "Field type GF2 not currently supported"
 
-#elif _FLD_TYPE == GF2E
+#endif
+
+#ifdef FLD_TYPE_GF2E
 
 /*
   #include <NTL/GF2EXFactoring.h>
@@ -57,9 +58,6 @@ typedef const poly_t poly_tc
   SET_POLY_TYPE(GF2EX);
 */
   #error "Field type GF2E not currently supported"
-
-#else 
-  #error "Unsupported field type"
 
 #endif
 

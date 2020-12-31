@@ -1,7 +1,7 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ(2.61)
+AC_PREREQ(2.69)
 AC_INIT([g2hec-lib], [0.1.4], [Ning Shang <geek@cerias.net>])
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/divisor_negate.C])
@@ -54,7 +54,12 @@ AC_HEADER_STDBOOL
 AC_C_CONST
 AC_C_INLINE
 
-# Checks for library functions.
+# Checks for program: makeinfo.
+AC_DEFUN([AC_PROG_MAKEINFO], [AC_CHECK_PROG(MYMAKEINFO, makeinfo,yes,no)])
+AC_PROG_MAKEINFO
+if test x"${MYMAKEINFO}" == x"no" ; then
+    AC_MSG_ERROR([Please install makeinfo before trying to build libg2hec. On Ubuntu, you may 'apt-get install texinfo'])
+fi
 
 AC_CONFIG_FILES([Makefile
                  src/Makefile

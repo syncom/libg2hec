@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.69)
-AC_INIT([g2hec-lib], [0.1.4], [Ning Shang <geek@cerias.net>])
+AC_INIT([g2hec-lib], [1.0.0], [Ning Shang <geek@cerias.net>])
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/divisor_negate.C])
 AC_CONFIG_HEADER([config.h])

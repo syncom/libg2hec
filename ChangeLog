@@ -1,3 +1,8 @@
+2020-12-31  Ning Shang <geek@cerias.net>
+
+	* Change license from GPLv3 to LGPLv2.1
+	* Bump version to 1.0.0
+
 2012-03-30  Ning Shang  <geek@cerias.net>
 
 	* src/rand.C: Bug fix. Added missing brackets.

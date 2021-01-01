@@ -1,12 +1,12 @@
 \input texinfo @c -*-texinfo-*-
 @c %** start of header 
 @setfilename g2hecdoc.info
-@settitle The Genus 2 Crypto C++ Library v0.1.2
+@settitle The Genus 2 Crypto C++ Library v1.0.0
 @c %** end of header
 
 @c %** Summary description and copyright. Appears only in info file.
 @ifinfo
-This is a help file for the g2hec library version 0.1.2.
+This is a help file for the g2hec library version 1.0.0.
 
 Copyright @copyright{} 2008-2009 N. Shang.
 @end ifinfo
@@ -14,7 +14,7 @@ Copyright @copyright{} 2008-2009 N. Shang.
 
 @c %** Titlepage, contents, copyright
 @titlepage
-@title The Genus 2 Crypto C++ Library v0.1.2
+@title The Genus 2 Crypto C++ Library v1.0.0
 @author Ning Shang
 
 @c The following comments start the copyright page.
@@ -99,13 +99,13 @@ The G2HEC library is released under the GNU General Public License.  See the
 file COPYING for details.
  
 @*
-The G2HEC library homepage: @uref{http://www.math.purdue.edu/~nshang/g2hec/}.
+The G2HEC library homepage: @url{https://github.com/syncom/libg2hec/}.
 
 @*
-The NTL library homepage: @uref{http://www.shoup.net/ntl/}.
+The NTL library homepage: @url{http://www.shoup.net/ntl/}.
 
 @*
-The GMP library homepage: @uref{http://www.swox.com/gmp/}.
+The GMP library homepage: @url{http://www.swox.com/gmp/}.
 
 @section Genus 2 curve basics
 Our object of interest, a genus 2 curve, is a nonsingular algebraic curve 
@@ -115,7 +115,7 @@ has leading coefficient 1) of degree 5, @math{h(x)} has degree not greater
 than 2, @math{q} is a prime or a power of a prime.
 
 @*
-Currently (version 0.1) G2HEC only supports odd prime @math{q} by default. 
+Currently (version 1.0.0) G2HEC only supports odd prime @math{q} by default. 
 You can ``hack'' the header file in @code{include/g2hec_nsfieldtype.h} to 
 switch its support to @math{q} as a power of an odd prime.  However, we do not 
 recommend to do so and it should be avoided except in extreme cases. So far 
@@ -189,8 +189,8 @@ installation has been tested on Linux and Solaris, and in Cygwin on Windows.
 
 @*
 To obtain the source code and documentation for G2HEC, download 
-@uref{http://www.math.purdue.edu/~nshang/g2hec/, g2hec-lib-xxx.tar.gz}. 
-Here ``xxx'' denotes the current version number.
+@url{https://github.com/syncom/libg2hec/tarball/vX.Y.Z}. 
+Here ``X.Y.Z'' denotes the current version number, i.e., 1.0.0.
 
 @section General installation instructions
 If the NTL library is installed in a standard system directory, then do the

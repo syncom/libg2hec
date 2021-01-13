@@ -19,11 +19,13 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y texinfo
+          sudo apt-get install -y autotools-dev autoconf build-essential
       - name: Build
         env:
           CC: ${{ matrix.compiler_c }}
           CXX: ${{ matrix.compiler_cxx }}
         run: |
           cd ${{ github.workspace }}
+          autoreconf -vi
           ./scripts/install-ntl-5.5.sh
           ./scripts/build.sh 

@@ -78,33 +78,33 @@ cryptosystems with advantages over elliptic curves (genus 1 curves).  Divisor
 group operations are essential to using genus 2 curves for cryptography.
 
 @c %** line break
-@*
+@sp 1
 It is built on top of V. Shoup's NTL library, "a high performance, portable C++
 library providing data structures and algorithms for arbitrary length integers;
 for vectors, matrices, and polynomials over the integers and over finite
 fields; and for arbitrary precision floating point arithmetic."  
 
-@*
+@sp 1
 It is recommended to build NTL using GMP (the GNU Multi-Precision package) for
 best performance.  However, the G2HEC library can be built and used with and
 without the existence of GMP.  
 
-@*
+@sp 1
 This library does not assume users' familiarity with any non-trivial math
 background except basic concepts of finite fields and polynomials.  No prior 
 knowledge of genus 2 curve is needed to used the library.
 
-@*
+@sp 1
 The G2HEC library is released under the GNU General Public License.  See the
 file COPYING for details.
  
-@*
+@sp 1
 The G2HEC library homepage: @url{https://github.com/syncom/libg2hec/}.
 
-@*
+@sp 1
 The NTL library homepage: @url{http://www.shoup.net/ntl/}.
 
-@*
+@sp 1
 The GMP library homepage: @url{http://www.swox.com/gmp/}.
 
 @section Genus 2 curve basics
@@ -114,19 +114,19 @@ over a finite field @math{GF(q)}, where @math{f(x)} is monic (i.e.,
 has leading coefficient 1) of degree 5, @math{h(x)} has degree not greater
 than 2, @math{q} is a prime or a power of a prime.
 
-@*
+@sp 1
 Currently (version 1.0.0) G2HEC only supports odd prime @math{q} by default. 
 You can ``hack'' the header file in @code{include/g2hec_nsfieldtype.h} to 
 switch its support to @math{q} as a power of an odd prime.  However, we do not 
 recommend to do so and it should be avoided except in extreme cases. So far 
 the library is tested only for odd prime numbers @math{q}.
 
-@*
+@sp 1
 There is currently no ``hack'' to have field types @code{GF2} and @code{GF2E}
 supported (curve singularity test does not work for characteristic 2 yet).  
 Support for characteristic 2 maybe added in the future.
 
-@*
+@sp 1
 A pair @math{(x_0, y_0)} with @math{x_0, y_0\in GF(q)} such that 
 @math{x = x_0} and @math{y = y_0} give a solution to the curve equation of
 @math{C} is called a @b{@math{GF(q)}-rational point of the genus 2 curve 
@@ -153,10 +153,10 @@ need to be satisfied for a pair @math{[u(x), v(x)]} to be a divisor of
 @math{C}.
 @end enumerate
 
-@*
+@sp 1
 The unit element of @math{Jac(C, GF(q))} is @math{[1, 0]}.
 
-@*
+@sp 1
 By convention, the group operation in the Jacobian of the curve @math{C} is 
 written additively. We shall write 
 @center @math{D=D_1+D_2, D=D_1-D_2, D=[n]D_1}
@@ -164,12 +164,12 @@ for @b{divisor addition, divisor subtraction} and @b{divisor scalar
 multiplication}, respectively, where @math{D=[n]D_1} means 
 @math{D=D_1+D_1+...+D_1} for @math{n} times.
  
-@*
+@sp 1
 More information about the math background of the Jacobian of genus 2 curves 
 can be found in the book ``Handbook of Elliptic And Hyperelliptic Curve 
 Cryptography'' by Cohen et al.
 
-@* 
+@sp 1 
 In addition to the high-level functions that operates on curves and divisors, 
 the G2HEC library also exports low-level functions that allow knowledgeable 
 users to take control of mathematical factors of curves and divisors. Our 
@@ -183,11 +183,11 @@ intent is to make the library useful for both mathematicians and cryptographers
 The G2HEC library is dependent of V. Shoup's NTL library, which can be found at
 @uref{http://www.shoup.net/ntl/, NTL: A Library for doing Number Theory}.
 
-@*
+@sp 1
 The following procedure should work on Unix and Unix-like platforms. The 
 installation has been tested on Linux and Solaris, and in Cygwin on Windows.
 
-@*
+@sp 1
 To obtain the source code and documentation for G2HEC, download 
 @url{https://github.com/syncom/libg2hec/tarball/vX.Y.Z}. 
 Here ``X.Y.Z'' denotes the current version number, i.e., 1.0.0.
@@ -206,7 +206,7 @@ following:
 % make install
 @end example
 
-@*
+@sp 1
 This will build, test and install G2HEC in @code{$HOME/nssw}.  You can change 
 to a different location by specifying it with the  @code{--prefix=} option (the
 default is @code{/usr/local}).  After installation, you will find the G2HEC 
@@ -225,7 +225,7 @@ For example (for bash)
 --prefix=$HOME/nssw
 @end example
 
-@*
+@sp 1
 Depending on whether GMP is found in the search path or not, the G2HEC library 
 is configured to build with or without GMP.
 
@@ -233,10 +233,10 @@ is configured to build with or without GMP.
 After the library is built, executing @code{make check} runs some test 
 programs.
 
-@*
+@sp 1
 It is highly recommended to do this to make sure things went well.
 
-@*
+@sp 1
 Executing @code{make install} copies a number of files to a directory 
 @code{<prefix>} 
 that you specify by passing @code{--prefix=<prefix>} as an argument 
@@ -244,16 +244,16 @@ to @code{configure} at configuration time, or as an argument to
 @code{make install} at installation time.  Recall that the default is
 @code{/usr/local}.
 
-@*
+@sp 1
 To uninstall the library, execute @code{make uninstall}.
 
-@*
+@sp 1
 To remove object files, execute @code{make clean}.
 
-@*
+@sp 1
 Note that this installation process is almost standard.
 
-@*
+@sp 1
 Assuming you have installed G2HEC as above, to compile program @code{myprog.C}
 that uses G2HEc, do
 
@@ -262,10 +262,10 @@ that uses G2HEc, do
 -L<ntl_prefix>/lib myprog.c -o myprog -lg2hec -lntl -lm
 @end example
 
-@*
+@sp 1
 The binary file @code{myprog} is created.
 
-@*
+@sp 1
 If you built NTL using GMP, do
 
 @example
@@ -274,7 +274,7 @@ If you built NTL using GMP, do
 -lntl -lgmp -lm
 @end example
 
-@*
+@sp 1
 Of course, there is no need to duplicate the flags if some of the locations are
 the same, and you may leave out the corresponding flags if the locations are
 standard directories.
@@ -287,7 +287,7 @@ You can play around with divisor scalar multiplication on the following demo
 page:
 @center @uref{http://www.math.purdue.edu/~nshang/g2hec/demo.html}.
 
-@*
+@sp 1
 This demo page shows an application built on top of the G2HEC library.  
 Although you may smell a bit of mathematics from this demo, in general
 programmers can build cryptographic algorithms/protocols without knowing
@@ -300,11 +300,11 @@ We shall walk you through several cryptographic applications of G2HEC.
 @section HEC-Diffie-Hellman key exchange
 The basic Diffie-Hellman key exchange protocol works as follows:
 
-@*
+@sp 1
 Alice and Bob wish to agree on a secret random element over an insecure channel
 without having to exchange any information previously.  
 
-@*
+@sp 1
 They agree on an element @math{P} in the Jacobian of the genus 2 curve 
 @math{C} with a large (known or unknown) order @math{G}.
 @enumerate
@@ -327,21 +327,21 @@ Similarly, Bob computes
 @center @math{[ab] P = [b] Q_1}.
 @end enumerate
 
-@*
+@sp 1
 This element @math{[ab] P} now serves as the secret that only Alice and Bob 
 know.
 
-@*
+@sp 1
 We illustrate a local version of this protocol using a genus 2 curve over a 
 prime field @math{GF(p)}, for an educational purpose.
 
-@*
+@sp 1
 First we include the header file g2hec_Genus2_ops.h:
 @example
 #include <g2hec_Genus2_ops.h>
 @end example
 
-@*
+@sp 1
 Then we define the maximum length (in decimal digits) of the prime number
 @math{p} to be 300:
 @example
@@ -349,14 +349,14 @@ Then we define the maximum length (in decimal digits) of the prime number
 #define MAX_STRING_LEN 300
 @end example
 
-@*
+@sp 1
 The following statement invokes the namespace used by the G2HEC library, and
 must be present for every client program.
 @example
 NS_G2_CLIENT
 @end example 
 
-@* 
+@sp 1 
 In the main function, we first set the pseudo-random number generator seed, and
 allocate a string buffer for receiving a prime number
 input by the user:
@@ -367,20 +367,20 @@ char p[MAX_STRING_LEN];
 cin.getline(p, MAX_STRING_LEN);
 @end example
 
-@*
+@sp 1
 We declare and initialize an NTL big integer object @code{pZZ} to store this
 prime number:
 @example
 ZZ pZZ = to_ZZ(p);
 @end example
 
-@*
+@sp 1
 Now we initialize the underline prime field @math{GF(p)}:
 @example
 field_t::init(pZZ);
 @end example
 
-@* 
+@sp 1 
 We shall declare and initialize several elements to hold the genus 2 curve,
 system parameters, keys and so on:
 @example
@@ -389,20 +389,20 @@ g2hcurve curve;
 divisor P, Q1, Q2;
 @end example
 
-@*
+@sp 1
 Generate a random valid genus 2 curve:
 @example
 curve.random();
 @end example
 
-@*
+@sp 1
 Set curve for the divisors.  A curve needs only to be set once in a program
 to work for all divisors.
 @example
 P.set_curve(curve);
 @end example
 
-@*
+@sp 1
 To perform Diffie-Hellman key exchange, it is not necessary to know the order 
 of @math{P}.  A fact is that this order is close to  @math{p^2}. So we choose
 @math{a} and @math{b} to be two random number bounded by @math{p^2}.
@@ -411,25 +411,25 @@ RandomBnd(a, pZZ*pZZ);
 RandomBnd(b, pZZ*pZZ);
 @end example
 
-@*
+@sp 1
 We generate a random base point @math{P}:
 @example
 P.random();
 @end example
 
-@*
+@sp 1
 Alice computes
 @example
 Q1 = a * P;
 @end example
 
-@*
+@sp 1
 Bob computes
 @example
 Q2 = b * P;
 @end example
 
-@*
+@sp 1
 A successful key exchange should yield the shared secret 
 @center @math{[ab]P = [a] Q_2 = [b] Q_1}:
 @example
@@ -439,7 +439,7 @@ else
   cout << "DH key exchange failed!" << endl;
 @end example
 
-@*
+@sp 1
 A complete source file for this example can be found in @code{example/dh.C}.
 
 @section HEC-ElGamal encryption
@@ -450,10 +450,10 @@ refer to the source file in @code{examples/elgamal_enc.C} for details.
 We shall use G2HEC to build a digital signature scheme: the ElGamal digital 
 signature.
 
-@*
+@sp 1
 Recall how this signature scheme works:
 
-@*
+@sp 1
 Bob chooses a genus 2 curve @math{C} and a prime number @math{p} so that the
 number of @math{GF(p})-rational points of the Jacobian of @math{C} has a large
 prime factor @math{N} -- preferably the number itself is prime. He then chooses
@@ -461,28 +461,28 @@ a divisor @math{g} of order @math{N}, a secret private key @math{x\in\{1,
 \ldots, N - 1\}}, then computes a divisor @math{h = [x] g}. Bob publishes 
 @math{g} and @math{h} as his public key.
 
-@*
+@sp 1
 To sign a message @math{m \in Z/(N)}, Bob first generates a random integer
 @math{i \in @{1, \ldots, N - 1@}}, and computes
 @center @math{a = [k] g}.
 
-@*
+@sp 1
 Bob then computes a solution, @math{b \in Z/(N)} to the congruence
 @center @math{m @equiv{} x f(a) + b k (mod N) }.
 Here @math{f} is a map from the Jacobian of @math{C} to @math{Z/(N)} which
 is almost injective.
 
-@*
+@sp 1
 Bob sends the signature @math{(a, b)} together with the message @math{m} 
 to Alice.
 
-@*
+@sp 1
 Upon receiving the message and signature from Bob, Alice verifies the signature
 by checking that 
 @center @math{[f(a)] h + [b] a = [m] g}
 holds.
 
-@*
+@sp 1
 It needs to be point out that a technical aspect of this algorithm involves
 the choice of the curve @math{C} and the prime number @math{p} so that its
 Jacobian has an order divisible by a large prime number.  This is not a 
@@ -504,16 +504,16 @@ curve is a prime number
 which is to our best interest.  In this case, we can pick any random non-unit
 divisor @math{g} as our base point.
 
-@*
+@sp 1
 At this point, we are able present a local version of this signature scheme.
 
-@*
+@sp 1
 As usual we include the header file @code{g2hec_Genus2_ops.h}:
 @example
 #include <g2hec_Genus2_ops.h>
 @end example
 
-@*
+@sp 1
 Then we define some macros that we are going to use, including the values of
 coefficients of the polynomial @math{f}, the prime number @math{p}, the group 
 order of the Jacobian, and a function that maps a suitable value to an NTL 
@@ -530,13 +530,13 @@ order of the Jacobian, and a function that maps a suitable value to an NTL
 #define str_to_ZZ_p(x) to_ZZ_p(to_ZZ(x))
 @end example
 
-@*
+@sp 1
 Also we issue the statement
 @example
 NS_G2_CLIENT
 @end example
 
-@*
+@sp 1
 Recall that we need an almost bijection that maps elements in the Jacobian to
 an element in @math{@{1, \ldots, N - 1@}}.  This map can be chosen as follows:
 @example
@@ -554,7 +554,7 @@ coefficients modulo the group order @math{N} of the Jacobian.  Users can
 define their own such function to use.  Security might be affected by bad
 choice of this almost injective function.
 
-@*
+@sp 1
 We start working on the @code{main} function by initializing the PRNG seed and
 declaring and define several values:
 @example
@@ -578,7 +578,7 @@ declaring and define several values:
   poly_t f;
 @end example
 
-@*
+@sp 1
 Then we manually assign values of polynomial @math{f} and define the 
 corresponding genus 2 curve:
 @example
@@ -591,7 +591,7 @@ corresponding genus 2 curve:
   curve.set_f(f);
 @end example
 
-@*
+@sp 1
 Then you update the curve information:
 @example
 curve.update();
@@ -600,13 +600,13 @@ This will update some flags related to properties of the curve, and needs to
 be done immediately after manual assignments to the curve's defining elements
 (e.g., the polynomial @math{f}).
 
-@*
+@sp 1
 Now we are ready to set the curve as the underlying curve of the divisors.
 @example
 g.set_curve(curve);
 @end example
 
-@*
+@sp 1
 We randomly choose the base point @math{g}, message @math{m} to be signed, the 
 private key @math{x}, and the public key @math{h}:
 @example
@@ -626,7 +626,7 @@ Note that we want the base point @math{g} to be any divisor except the unit
 divisor, and we do not allow the private key @math{x} to be 0.  This is what
 the @math{do...while} statements do.
 
-@*
+@sp 1
 Now we shall generate the ElGamal signature @math{(a, b)}:
 @example
   do @{
@@ -643,7 +643,7 @@ Now we shall generate the ElGamal signature @math{(a, b)}:
 The element @code{f_a} holds the value @math{f(a)} given by the almost 
 injection applied to the divisor @math{a}.
 
-@* 
+@sp 1 
 Alright!  Now the most exciting moment has arrived -- signature verification:
 @example
   if ( f_a * h + b * a == m * g )
@@ -653,11 +653,11 @@ Alright!  Now the most exciting moment has arrived -- signature verification:
 @end example
 
 
-@* 
+@sp 1 
 The complete source file can be found in @code{examples/elgamal_sig.C}.
 
-@*
-**************************************************************@*
+@sp 1
+**************************************************************@sp 1
 In the following chapters, we will give a general overview of the G2HEC's 
 programming interface. This includes:
 @itemize
@@ -694,41 +694,41 @@ with @math{\deg{h}\le 2} and @math{\deg{f} = 5}.  We also require that
 @math{C} 
 be nonsingular and the leading coefficient of @math{f(x)} be 1. 
 
-@*
+@sp 1
 Types @code{field_t} and @code{poly_t} are for the field element 
 type and the corresponding polynomial type, respectively. They are defined 
 in the header file @code{include/g2hec_nsfieldtype.h}. Type @code{poly_tc}
 is the type @code{const poly_t}.
 
-@*
+@sp 1
 A genus 2 curve is stored in the @code{g2hcurve} class.
 
-@*
+@sp 1
 Below are some of the class's public member functions. They are exported in
 the file @code{include/g2hec_Genus2_ops.h}.
 
-@*
-@code{g2hcurve()}: @*
+@sp 1
+@code{g2hcurve()}: @sp 1
 default constructor; set curve to @math{y^2 = 0}.
 
-@*
-@code{g2hcurve(const poly_tc& poly1, const poly_tc& poly2)}: @*
+@sp 1
+@code{g2hcurve(const poly_tc& poly1, const poly_tc& poly2)}: @sp 1
 constructor; sets curve to @math{y^2 + @code{poly2}*y = @code{poly1}}.
 
-@*
-@code{g2hcurve(const g2hcurve& hcurve)}: @*
+@sp 1
+@code{g2hcurve(const g2hcurve& hcurve)}: @sp 1
 copy constructor.
 
-@*
-@code{void set_f(const poly_tc& poly)}: @*
+@sp 1
+@code{void set_f(const poly_tc& poly)}: @sp 1
 sets @math{f(x)} to @code{poly}.
 
-@*
-@code{void set_h(const poly_tc& poly)}: @*
+@sp 1
+@code{void set_h(const poly_tc& poly)}: @sp 1
 sets @math{h(x)} to @code{poly}.
 
-@*
-@code{void update()}: @*
+@sp 1
+@code{void update()}: @sp 1
 checks and set internal flags to determine whether
 the curve is nonsingular and of genus 2.  This function MUST be called 
 immediately after the curve has been changed by @code{set_f()},
@@ -736,24 +736,24 @@ immediately after the curve has been changed by @code{set_f()},
 related to the curve. This is very important to remember, otherwise error 
 may occur.
 
-@*
-@code{const poly_tc& get_f()}: @*
+@sp 1
+@code{const poly_tc& get_f()}: @sp 1
 returns reference to polynomial @math{f(x)}.
 
-@*
-@code{const poly_tc& get_h()}: @*
+@sp 1
+@code{const poly_tc& get_h()}: @sp 1
 returns reference to polynomial @math{h(x)}.
 
-@*
-@code{bool_t is_valid_curve()}: @*
+@sp 1
+@code{bool_t is_valid_curve()}: @sp 1
 returns TRUE is curve is nonsingular, genus 2, and @math{f(x)} is monic.
 
-@*
+@sp 1
 You can also write @code{curve1 = curve2} naturally to set the value of 
 @code{curve1} to be the same as @code{curve2}. It is not needed that 
 @code{curve2} be valid for this assignment.
 
-@*
+@sp 1
 You can do comparisons like
 @code{curve1 == curve2} or @code{curve1 != curve2} to test if two curves
 are the same.  Curves do not need to be valid for these comparisons.
@@ -767,7 +767,7 @@ related to the curve @math{C}.  Therefore, every divisor (class) has a
 curve to associate with.  G2HEC use a C++ class @code{divisor} to hold
 a divisor.
 
-@*
+@sp 1
 For cryptographic purposes, G2HEC does not support the existence of divisors 
 associated with different curves in the same running process. It implements
 the associated genus 2 curve as a static data member of the @code{divisor} 
@@ -776,77 +776,77 @@ it works for all divisors.  A curve change for one divisor in a program will
 cause all divisors in the same program to switch to the new curve.  This is
 another important convention of G2HEC.
 
-@*
+@sp 1
 We list some of the @code{divisor} class's public member functions as follows.
 
-@*
-@code{divisor()}: @*
+@sp 1
+@code{divisor()}: @sp 1
 default constructor; sets @math{u(x) = 1, v(x) = 0}, and associated curve
 as @math{y^2 = 0}. A divisor is not valid by default.
 
-@*
-@code{divisor(const poly_tc& polyu, const poly_tc& polyv, const g2hcurve& curve)}: @*
+@sp 1
+@code{divisor(const poly_tc& polyu, const poly_tc& polyv, const g2hcurve& curve)}: @sp 1
 constructor; set @math{u(x) = }@code{polyu}, @math{v(x) = }@code{polyv}, and 
 associated curve to @code{curve}.
 
-@*
-@code{divisor(const divisor& div)}:@*
+@sp 1
+@code{divisor(const divisor& div)}:@sp 1
 copy constructor.
 
-@*
-@code{void set_upoly(poly_tc& poly)}: @*
+@sp 1
+@code{void set_upoly(poly_tc& poly)}: @sp 1
 sets @math{u(x)} to @code{poly} for the divisor.
 
-@*
-@code{void set_vpoly(poly_tc& poly)}: @*
+@sp 1
+@code{void set_vpoly(poly_tc& poly)}: @sp 1
 sets @math{v(x)} to @code{poly} for the divisor.
 
-@*
-@code{void set_curve(const g2hcurve& curve)}: @*
+@sp 1
+@code{void set_curve(const g2hcurve& curve)}: @sp 1
 sets the associated curve to @code{curve} for divisor.  The curve does
 not need to be a valid genus 2 curve.
 
-@*
-@code{void update()}: @*
+@sp 1
+@code{void update()}: @sp 1
 This function checks and updates information related to the divisor.  It must 
 be called by a client program after any @code{set_} routine is called. 
 Otherwise error make occur when operations on divisor are performed.
 
-@*
-@code{const poly_tc& get_upoly()}: @*
+@sp 1
+@code{const poly_tc& get_upoly()}: @sp 1
 returns @math{u(x)} of the divisor.
 
-@*
-@code{const poly_tc& get_vpoly()}: @*
+@sp 1
+@code{const poly_tc& get_vpoly()}: @sp 1
 returns @math{v(x)} of the divisor.
 
-@*
-@code{const g2hcurve& get_curve()}: @*
+@sp 1
+@code{const g2hcurve& get_curve()}: @sp 1
 returns the associated curve of the divisor.
 
-@*
-@code{bool_t is_valid_divisor()}: @*
+@sp 1
+@code{bool_t is_valid_divisor()}: @sp 1
 returns @code{TRUE} is the representation of the divisor is valid, @code{FALSE}
 otherwise.
 
-@*
-@code{bool_t is_unit()}: @*
+@sp 1
+@code{bool_t is_unit()}: @sp 1
 tests if the divisor is the unit divisor @math{[1, 0]}.
 
-@*
-@code{set_unit()}: @*
+@sp 1
+@code{set_unit()}: @sp 1
 sets the divisor to the unit divisor @math{[1, 0]}.
 
-@*
+@sp 1
 You can write @code{divisor1 = divisor2} to assign the value of @code{divisor2}
 to @code{divisor1}.  @code{divisor2} can be either valid or invalid.
 
-@*
+@sp 1
 You can do comparisons like @code{divisor1 == divisor2} or 
 @code{divisor1 != divisor2} to test if two divisors are the same. Divisors
 do not need to be valid for such comparisons.
 
-@*
+@sp 1
 There is also a non-member function 
 @center @code{bool_t on_same_curve(const divisor& a, const divisor& b)}
 that tests if two divisors @code{a} and @code{b} have the same associated
@@ -858,40 +858,40 @@ this function always returns @code{TRUE}. Therefore this test is redundant.
 The divisor operations are @b{addition, negation, subtraction} and 
 @b{scalar multiplication}.
 
-@*
+@sp 1
 The divisor arithmetic is implemented using the @b{explicit formulas}, which 
 is supposed to be faster than the generic one via @b{Cantor's algorithm}, for
 the most common cases of the divisor operations.  The Cantor's algorithm is
 also implemented in G2HEC and used to handle special cases that rarely happen
 in cryptographic applications.
 
-@*
+@sp 1
 The interfaces for divisor arithmetic are strait-forward.  We list them in 
 below in both their procedure and operator version (if both version exist).
 
-@*
-@code{bool_t add_cantor(divisor& x, const divisor& a, const divisor& b)}:@*
+@sp 1
+@code{bool_t add_cantor(divisor& x, const divisor& a, const divisor& b)}:@sp 1
 This is the Cantor's algorithm which computes @code{x = a + b}.
 
-@*
-@code{bool_t add((divisor& x, const divisor& a, const divisor& b)},@*
-@code{divisor operator+(const divisor& a, const divisor& b)}: @*
+@sp 1
+@code{bool_t add((divisor& x, const divisor& a, const divisor& b)},@sp 1
+@code{divisor operator+(const divisor& a, const divisor& b)}: @sp 1
 compute @code{x = a + b} via explicit formulas; special cases handled by 
 calling @code{add_cantor()}.
 
-@*
-@code{bool_t sub((divisor& x, const divisor& a, const divisor& b)},@*
-@code{divisor operator-(const divisor& a, const divisor& b)}: @*
+@sp 1
+@code{bool_t sub((divisor& x, const divisor& a, const divisor& b)},@sp 1
+@code{divisor operator-(const divisor& a, const divisor& b)}: @sp 1
 compute @code{x = a - b}.
 
-@*
-@code{bool_t dnegate(divisor& x, const divisor& a)}, @*
-@code{divisor operator-(const divisor& a)}: @*
+@sp 1
+@code{bool_t dnegate(divisor& x, const divisor& a)}, @sp 1
+@code{divisor operator-(const divisor& a)}: @sp 1
 compute @code{x = -a}.
 
-@*
-@code{scalar_mul(divisor& x, const divisor& a, const ZZ& n,  bool_t (*method)(divisor&, const divisor&, const ZZ&))}, @*
-@code{scalar_mul(divisor& x, const divisor& a, long n,  bool_t (*method)(divisor&, const divisor&, const ZZ&))}: @*
+@sp 1
+@code{scalar_mul(divisor& x, const divisor& a, const ZZ& n,  bool_t (*method)(divisor&, const divisor&, const ZZ&))}, @sp 1
+@code{scalar_mul(divisor& x, const divisor& a, long n,  bool_t (*method)(divisor&, const divisor&, const ZZ&))}: @sp 1
 compute @code{x = [n]a} using a method specified by @code{method}.  Currently,
 three methods are provided by G2HEC:
 @enumerate
@@ -905,16 +905,16 @@ three methods are provided by G2HEC:
 @code{ML}: method of the @b{Montgomery's ladder}; used to resist side-channel 
 attacks.
 @end enumerate
-@*
+@sp 1
 Setting @code{method} to @code{NULL} performs scalar multiplication via 
 @code{SAM}.
 
 
-@*
-@code{divisor operator*(const ZZ& n, const divisor& a)}, @*
-@code{divisor operator*(const divisor& a, const ZZ& n)}, @*
-@code{divisor operator*(long n, const divisor& a)}, @*
-@code{divisor operator*(const divisor& a, long n)}: @*
+@sp 1
+@code{divisor operator*(const ZZ& n, const divisor& a)}, @sp 1
+@code{divisor operator*(const divisor& a, const ZZ& n)}, @sp 1
+@code{divisor operator*(long n, const divisor& a)}, @sp 1
+@code{divisor operator*(const divisor& a, long n)}: @sp 1
 return @code{[n]a}. @code{SAM} is used for scalar multiplication.
 
 @node I/O, Randomness functions, Divisor arithmetic, Top
@@ -924,11 +924,11 @@ They might be more useful for mathematics research on genus 2 curves over
 finite fields than for implementation of cryptographic protocols.  For sake of 
 completeness, we briefly introduce them here.
 
-@*
-@code{void print_poly(poly_t& poly, std::ostream *s)}: @*
+@sp 1
+@code{void print_poly(poly_t& poly, std::ostream *s)}: @sp 1
 directs a natural representation of polynomial @code{poly} to @code{s}. 
 
-@* 
+@sp 1 
 For example, calling @code{print_poly(f, cout)} will display in the standard
 output
 @example
@@ -937,7 +937,7 @@ x^5 + 3*x^2 + x
 if @code{f} is a @code{poly_t} object representing 
 @math{f(x) = x^5 + 3 x^2 + x}.
 
-@*
+@sp 1
 Calling @code{cout << curve; } will display in the standard output 
 something like
 @example
@@ -957,7 +957,7 @@ Curve: y^2 + h(x)*y = f(x)
 @end example
 if @code{curve} is not valid.
 
-@*
+@sp 1
 Calling @code{cout << divisor; } will display in the standard output
 something like
 @example
@@ -1001,42 +1001,42 @@ to set the PRNG seed using a @code{ZZ} object @code{seed} if you are to
 do serious cryptographic applications which use the G2HEC's randomness 
 functions.
 
-@*
+@sp 1
 The G2HEC library exports in @code{include/g2hec_rand.h} a function 
 @center @code{ZZ g2hec_rand()},
 which obtains a random @code{ZZ} object of 128-bit integer by trying
 to use the file /dev/urandom as a source of random bits; if it fails, 
 then 0 is returned.
 
-@*
+@sp 1
 User can set its own random seed, or call 
 @center @code{NTL::SetSeed(g2hec_rand())}
 to generate one.
 
-@*
+@sp 1
 The class @code{g2hcurve} has a member function to generate a random 
 valid genus 2 curve.
 
-@*
-@code{g2hcurve& random()}: @*
+@sp 1
+@code{g2hcurve& random()}: @sp 1
 generates a random valid genus 2 curve.
 
-@*
+@sp 1
 The class @code{divisor} has two member functions to generate random
 valid divisors, if the associated curve is valid.
 
-@*
-@code{divisor& random()}: @*
+@sp 1
+@code{divisor& random()}: @sp 1
 If the associated curve is valid, sets the divisor to a random valid
 divisor of degree 2, i.e., @math{\deg{u} = 2}.
 
-@*
-@code{divisor& random(divdeg_t dgr)}: @*
+@sp 1
+@code{divisor& random(divdeg_t dgr)}: @sp 1
 If the associated curve is valid, sets divisor to a random valid divisor
 of degree @code{dgr}, where @code{dgr} takes values 1 (DEGREE_1) or
 2 (DEGREE_2).
 
-@*
+@sp 1
 Note that @code{divisor.random()} never returns a unit divisor @math{[1, 0]}.
 
 @node Some issues, , Randomness functions, Top

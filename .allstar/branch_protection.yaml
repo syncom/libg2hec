@@ -1,4 +1,6 @@
 optConfig:
   optIn: true
 action: issue
+enforceBranches: [ master ]
 requireApproval: false
+approvalCount: 0

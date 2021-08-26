@@ -1,6 +1,3 @@
 optConfig:
-  optIn: true
+  optOut: true
 action: issue
-enforceBranches: [ master ]
-requireApproval: false
-approvalCount: 0

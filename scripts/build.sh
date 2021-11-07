@@ -2,7 +2,7 @@
 
 set -euxo pipefail
 
-SCRIPT_DIR=$(dirname $0)
+SCRIPT_DIR=$(dirname "$0")
 
 # Where we run ./configure
 cd "${SCRIPT_DIR}/.."

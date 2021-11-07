@@ -1,0 +1,43 @@
+# Shellcheck: Opinionated shell script analysis
+name: "Shellcheck"
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [master]
+
+jobs:
+  shellcheck:
+    name: "shellcheck"
+    strategy:
+      fail-fast: false
+      # Run on Linux and macos
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - if: ${{ matrix.os == 'ubuntu-latest' }}
+        name: Install shellcheck on Ubuntu
+        run: |
+          sudo apt-get update
+          sudo apt-get install shellcheck -y
+
+      - if: ${{ matrix.os == 'macos-latest' }}
+        name: Install shellcheck on macos
+        run: |
+          brew install shellcheck
+
+      - name: Run shellcheck
+        run: |
+          set -euxo pipefail
+          cd ${{ github.workspace }}/
+          shellcheck --version
+          for f in $(find scripts/ -type f); do
+            if file "$f" | grep -q "shell script"; then
+              shellcheck "$f"
+            fi
+          done

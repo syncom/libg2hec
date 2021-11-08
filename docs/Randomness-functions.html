@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Randomness functions (The Genus 2 Crypto C++ Library v1.0.0)</title>
+
+<meta name="description" content="Randomness functions (The Genus 2 Crypto C++ Library v1.0.0)">
+<meta name="keywords" content="Randomness functions (The Genus 2 Crypto C++ Library v1.0.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="Some-issues.html#Some-issues" rel="next" title="Some issues">
+<link href="I_002fO.html#I_002fO" rel="prev" title="I/O">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<a name="Randomness-functions"></a>
+<div class="header">
+<p>
+Next: <a href="Some-issues.html#Some-issues" accesskey="n" rel="next">Some issues</a>, Previous: <a href="I_002fO.html#I_002fO" accesskey="p" rel="prev">I/O</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+</div>
+<hr>
+<a name="Randomness-functions-1"></a>
+<h2 class="chapter">9 Randomness functions</h2>
+<p>The G2HEC library uses NTL&rsquo;s pseudo-random number generator for generating
+functions that output random values.  It is recommended to override the 
+default seed by calling
+</p><div align="center"><code>NTL::SetSeed( seed )</code>
+</div><p>to set the PRNG seed using a <code>ZZ</code> object <code>seed</code> if you are to
+do serious cryptographic applications which use the G2HEC&rsquo;s randomness 
+functions.
+</p>
+<br>
+<p>The G2HEC library exports in <code>include/g2hec_rand.h</code> a function 
+</p><div align="center"><code>ZZ g2hec_rand()</code>,
+</div><p>which obtains a random <code>ZZ</code> object of 128-bit integer by trying
+to use the file /dev/urandom as a source of random bits; if it fails, 
+then 0 is returned.
+</p>
+<br>
+<p>User can set its own random seed, or call 
+</p><div align="center"><code>NTL::SetSeed(g2hec_rand())</code>
+</div><p>to generate one.
+</p>
+<br>
+<p>The class <code>g2hcurve</code> has a member function to generate a random 
+valid genus 2 curve.
+</p>
+<br>
+<p><code>g2hcurve&amp; random()</code>: </p><br>
+<p>generates a random valid genus 2 curve.
+</p>
+<br>
+<p>The class <code>divisor</code> has two member functions to generate random
+valid divisors, if the associated curve is valid.
+</p>
+<br>
+<p><code>divisor&amp; random()</code>: </p><br>
+<p>If the associated curve is valid, sets the divisor to a random valid
+divisor of degree 2, i.e., <em>\deg{u} = 2</em>.
+</p>
+<br>
+<p><code>divisor&amp; random(divdeg_t dgr)</code>: </p><br>
+<p>If the associated curve is valid, sets divisor to a random valid divisor
+of degree <code>dgr</code>, where <code>dgr</code> takes values 1 (DEGREE_1) or
+2 (DEGREE_2).
+</p>
+<br>
+<p>Note that <code>divisor.random()</code> never returns a unit divisor <em>[1, 0]</em>.
+</p>
+
+
+
+</body>
+</html>

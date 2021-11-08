@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Divisor functions (The Genus 2 Crypto C++ Library v1.0.0)</title>
+
+<meta name="description" content="Divisor functions (The Genus 2 Crypto C++ Library v1.0.0)">
+<meta name="keywords" content="Divisor functions (The Genus 2 Crypto C++ Library v1.0.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="Divisor-arithmetic.html#Divisor-arithmetic" rel="next" title="Divisor arithmetic">
+<link href="Genus-2-curve-functions.html#Genus-2-curve-functions" rel="prev" title="Genus 2 curve functions">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<a name="Divisor-functions"></a>
+<div class="header">
+<p>
+Next: <a href="Divisor-arithmetic.html#Divisor-arithmetic" accesskey="n" rel="next">Divisor arithmetic</a>, Previous: <a href="Genus-2-curve-functions.html#Genus-2-curve-functions" accesskey="p" rel="prev">Genus 2 curve functions</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+</div>
+<hr>
+<a name="Divisor-functions-1"></a>
+<h2 class="chapter">6 Divisor functions</h2>
+<p>A divisor (class) is a pair of polynomials <em>[u(x), v(x)]</em> over 
+<em>GF(q)</em>
+with <em>\deg{v}&lt;\deg{u}\le 2</em> so that they satisfy certain conditions 
+related to the curve <em>C</em>.  Therefore, every divisor (class) has a 
+curve to associate with.  G2HEC use a C++ class <code>divisor</code> to hold
+a divisor.
+</p>
+<br>
+<p>For cryptographic purposes, G2HEC does not support the existence of divisors 
+associated with different curves in the same running process. It implements
+the associated genus 2 curve as a static data member of the <code>divisor</code> 
+class.  The client program only needs to set the curve once for a divisor, and
+it works for all divisors.  A curve change for one divisor in a program will
+cause all divisors in the same program to switch to the new curve.  This is
+another important convention of G2HEC.
+</p>
+<br>
+<p>We list some of the <code>divisor</code> class&rsquo;s public member functions as follows.
+</p>
+<br>
+<p><code>divisor()</code>: </p><br>
+<p>default constructor; sets <em>u(x) = 1, v(x) = 0</em>, and associated curve
+as <em>y^2 = 0</em>. A divisor is not valid by default.
+</p>
+<br>
+<p><code>divisor(const poly_tc&amp; polyu, const poly_tc&amp; polyv, const g2hcurve&amp; curve)</code>: </p><br>
+<p>constructor; set <em>u(x) = </em><code>polyu</code>, <em>v(x) = </em><code>polyv</code>, and 
+associated curve to <code>curve</code>.
+</p>
+<br>
+<p><code>divisor(const divisor&amp; div)</code>:</p><br>
+<p>copy constructor.
+</p>
+<br>
+<p><code>void set_upoly(poly_tc&amp; poly)</code>: </p><br>
+<p>sets <em>u(x)</em> to <code>poly</code> for the divisor.
+</p>
+<br>
+<p><code>void set_vpoly(poly_tc&amp; poly)</code>: </p><br>
+<p>sets <em>v(x)</em> to <code>poly</code> for the divisor.
+</p>
+<br>
+<p><code>void set_curve(const g2hcurve&amp; curve)</code>: </p><br>
+<p>sets the associated curve to <code>curve</code> for divisor.  The curve does
+not need to be a valid genus 2 curve.
+</p>
+<br>
+<p><code>void update()</code>: </p><br>
+<p>This function checks and updates information related to the divisor.  It must 
+be called by a client program after any <code>set_</code> routine is called. 
+Otherwise error make occur when operations on divisor are performed.
+</p>
+<br>
+<p><code>const poly_tc&amp; get_upoly()</code>: </p><br>
+<p>returns <em>u(x)</em> of the divisor.
+</p>
+<br>
+<p><code>const poly_tc&amp; get_vpoly()</code>: </p><br>
+<p>returns <em>v(x)</em> of the divisor.
+</p>
+<br>
+<p><code>const g2hcurve&amp; get_curve()</code>: </p><br>
+<p>returns the associated curve of the divisor.
+</p>
+<br>
+<p><code>bool_t is_valid_divisor()</code>: </p><br>
+<p>returns <code>TRUE</code> is the representation of the divisor is valid, <code>FALSE</code>
+otherwise.
+</p>
+<br>
+<p><code>bool_t is_unit()</code>: </p><br>
+<p>tests if the divisor is the unit divisor <em>[1, 0]</em>.
+</p>
+<br>
+<p><code>set_unit()</code>: </p><br>
+<p>sets the divisor to the unit divisor <em>[1, 0]</em>.
+</p>
+<br>
+<p>You can write <code>divisor1 = divisor2</code> to assign the value of <code>divisor2</code>
+to <code>divisor1</code>.  <code>divisor2</code> can be either valid or invalid.
+</p>
+<br>
+<p>You can do comparisons like <code>divisor1 == divisor2</code> or 
+<code>divisor1 != divisor2</code> to test if two divisors are the same. Divisors
+do not need to be valid for such comparisons.
+</p>
+<br>
+<p>There is also a non-member function 
+</p><div align="center"><code>bool_t on_same_curve(const divisor&amp; a, const divisor&amp; b)</code>
+</div><p>that tests if two divisors <code>a</code> and <code>b</code> have the same associated
+curve.  According to the way G2HEC implements the <code>divisor</code> class,
+this function always returns <code>TRUE</code>. Therefore this test is redundant.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Divisor-arithmetic.html#Divisor-arithmetic" accesskey="n" rel="next">Divisor arithmetic</a>, Previous: <a href="Genus-2-curve-functions.html#Genus-2-curve-functions" accesskey="p" rel="prev">Genus 2 curve functions</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+</div>
+
+
+
+</body>
+</html>

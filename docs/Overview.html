@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Overview (The Genus 2 Crypto C++ Library v1.0.0)</title>
+
+<meta name="description" content="Overview (The Genus 2 Crypto C++ Library v1.0.0)">
+<meta name="keywords" content="Overview (The Genus 2 Crypto C++ Library v1.0.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="Installation.html#Installation" rel="next" title="Installation">
+<link href="index.html#Top" rel="prev" title="Top">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<a name="Overview"></a>
+<div class="header">
+<p>
+Next: <a href="Installation.html#Installation" accesskey="n" rel="next">Installation</a>, Previous: <a href="index.html#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+</div>
+<hr>
+<a name="Overview-1"></a>
+<h2 class="chapter">1 Overview</h2>
+<a name="What-is-G2HEC_003f"></a>
+<h3 class="section">1.1 What is G2HEC?</h3>
+<p>The G2HEC (Genus 2 HyperElliptic Curve) library is a free portable C++ library 
+providing divisor group operations in the Jacobian of genus 2 (imaginary) 
+hyperelliptic curve.  Such curves can be used for discrete-logarithm-based 
+cryptosystems with advantages over elliptic curves (genus 1 curves).  Divisor 
+group operations are essential to using genus 2 curves for cryptography.
+</p>
+<br>
+<p>It is built on top of V. Shoup&rsquo;s NTL library, &quot;a high performance, portable C++
+library providing data structures and algorithms for arbitrary length integers;
+for vectors, matrices, and polynomials over the integers and over finite
+fields; and for arbitrary precision floating point arithmetic.&quot;  
+</p>
+<br>
+<p>It is recommended to build NTL using GMP (the GNU Multi-Precision package) for
+best performance.  However, the G2HEC library can be built and used with and
+without the existence of GMP.  
+</p>
+<br>
+<p>This library does not assume users&rsquo; familiarity with any non-trivial math
+background except basic concepts of finite fields and polynomials.  No prior 
+knowledge of genus 2 curve is needed to used the library.
+</p>
+<br>
+<p>The G2HEC library is released under the GNU General Public License.  See the
+file COPYING for details.
+</p> 
+<br>
+<p>The G2HEC library homepage: <a href="https://github.com/syncom/libg2hec/">https://github.com/syncom/libg2hec/</a>.
+</p>
+<br>
+<p>The NTL library homepage: <a href="http://www.shoup.net/ntl/">http://www.shoup.net/ntl/</a>.
+</p>
+<br>
+<p>The GMP library homepage: <a href="http://www.swox.com/gmp/">http://www.swox.com/gmp/</a>.
+</p>
+<a name="Genus-2-curve-basics"></a>
+<h3 class="section">1.2 Genus 2 curve basics</h3>
+<p>Our object of interest, a genus 2 curve, is a nonsingular algebraic curve 
+</p><div align="center"><em>C: y^2 + h(x)y = f(x)</em>
+</div><p>over a finite field <em>GF(q)</em>, where <em>f(x)</em> is monic (i.e., 
+has leading coefficient 1) of degree 5, <em>h(x)</em> has degree not greater
+than 2, <em>q</em> is a prime or a power of a prime.
+</p>
+<br>
+<p>Currently (version 1.0.0) G2HEC only supports odd prime <em>q</em> by default. 
+You can &ldquo;hack&rdquo; the header file in <code>include/g2hec_nsfieldtype.h</code> to 
+switch its support to <em>q</em> as a power of an odd prime.  However, we do not 
+recommend to do so and it should be avoided except in extreme cases. So far 
+the library is tested only for odd prime numbers <em>q</em>.
+</p>
+<br>
+<p>There is currently no &ldquo;hack&rdquo; to have field types <code>GF2</code> and <code>GF2E</code>
+supported (curve singularity test does not work for characteristic 2 yet).  
+Support for characteristic 2 maybe added in the future.
+</p>
+<br>
+<p>A pair <em>(x_0, y_0)</em> with <em>x_0, y_0\in GF(q)</em> such that 
+<em>x = x_0</em> and <em>y = y_0</em> give a solution to the curve equation of
+<em>C</em> is called a <b><em>GF(q)</em>-rational point of the genus 2 curve 
+<em>C</em></b>.
+Obviously, <em>C</em> has only finitely many <em>GF(q)</em>-rational points.  
+Unlike the case of elliptic curves, the set of <em>GF(q)</em>-rational points 
+of the curve <em>C</em> does not naturally hold a group structure, therefore they
+cannot be used directly to do discrete-logarithm-based cryptography. 
+Instead, we choose to use the <b><em>GF(q)</em>-rational points of the Jacobian</b> 
+of the curve
+<em>C</em>, which is a finite group, to achieve our (cryptographic) goal. 
+It is not necessary for the users of the G2HEC library know how the Jacobian
+of a genus 2 curve is defined, given the following two facts:
+</p><ol>
+<li> The <em>GF(q)</em>-rational points of the Jacobian of a genus 2 curve <em>C</em>,
+<em>Jac(C, GF(q))</em>, is a finite group of size approximately <em>q^2</em>.
+
+</li><li> An element of <em>Jac(C, GF(q))</em> is called a <b>divisor class</b> (<b>divisor</b>
+in short) over <em>GF(q)</em>. A divisor (class) <em>D</em> is represented by a 
+pair of polynomials <em>[u(x), v(x)]</em> over <em>GF(q)</em>. Several conditions
+need to be satisfied for a pair <em>[u(x), v(x)]</em> to be a divisor of 
+<em>C</em>.
+</li></ol>
+
+<br>
+<p>The unit element of <em>Jac(C, GF(q))</em> is <em>[1, 0]</em>.
+</p>
+<br>
+<p>By convention, the group operation in the Jacobian of the curve <em>C</em> is 
+written additively. We shall write 
+</p><div align="center"><em>D=D_1+D_2, D=D_1-D_2, D=[n]D_1</em>
+</div><p>for <b>divisor addition, divisor subtraction</b> and <b>divisor scalar 
+multiplication</b>, respectively, where <em>D=[n]D_1</em> means 
+<em>D=D_1+D_1+...+D_1</em> for <em>n</em> times.
+</p> 
+<br>
+<p>More information about the math background of the Jacobian of genus 2 curves 
+can be found in the book &ldquo;Handbook of Elliptic And Hyperelliptic Curve 
+Cryptography&rdquo; by Cohen et al.
+</p>
+<br>
+<p>In addition to the high-level functions that operates on curves and divisors, 
+the G2HEC library also exports low-level functions that allow knowledgeable 
+users to take control of mathematical factors of curves and divisors. Our 
+intent is to make the library useful for both mathematicians and cryptographers
+(or the ones who play both roles).
+</p>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Installation.html#Installation" accesskey="n" rel="next">Installation</a>, Previous: <a href="index.html#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+</div>
+
+
+
+</body>
+</html>

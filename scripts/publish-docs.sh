@@ -59,8 +59,6 @@ if [ "${THIS_BRANCH}" != "${EDIT_BRANCH}" ]; then
   exit 0
 else
   echo "Publishing documentation to refs/heads/${DOCS_BRANCH}"
-  #git push -f "${NEW_COMMIT}:refs/heads/${DOCS_BRANCH}"
+  git push -f origin "${NEW_COMMIT}:refs/heads/${DOCS_BRANCH}"
 fi
-
-
 

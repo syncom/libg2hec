@@ -62,7 +62,7 @@ Crypto) C++ Library.
 
 * Randomness functions:: Random curve, random divisor
 
-* Some issues::
+* Some issues:: Some limitations
 @end menu
 
 @c %** end of top node and master menu

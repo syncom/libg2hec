@@ -3,7 +3,8 @@
 
 AC_PREREQ(2.69)
 AC_INIT([g2hec-lib], [1.0.0], [Ning Shang <geek@cerias.net>])
-AM_INIT_AUTOMAKE
+# The foreign option allows using README.md instead of README for project
+AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_SRCDIR([src/divisor_negate.C])
 AC_CONFIG_HEADER([config.h])
 AC_CONFIG_MACRO_DIR([m4])

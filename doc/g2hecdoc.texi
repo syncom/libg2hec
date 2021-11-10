@@ -283,15 +283,22 @@ standard directories.
 @chapter Quick start
 
 @section A web demo of divisor scalar multiplication
-You can play around with divisor scalar multiplication on the following demo
-page:
+One used to be able to play around with divisor scalar multiplication on
+the following demo page (thanks to Purdue's Mathematics Department):
 @center @uref{http://www.math.purdue.edu/~nshang/g2hec/demo.html}.
 
 @sp 1
-This demo page shows an application built on top of the G2HEC library.  
+The demo page showed an application built on top of the G2HEC library.  
 Although you may smell a bit of mathematics from this demo, in general
 programmers can build cryptographic algorithms/protocols without knowing
 any college-level math.
+
+@sp 1
+The hosting is no longer available as of 2021. Interested readers are
+encouraged to explore the
+[demo/](https://github.com/syncom/libg2hec/tree/master/demo) directory
+in the source repository.
+
 
 @node Tutorial, Genus 2 curve functions, Quick start, Top
 @chapter Tutorial
@@ -683,6 +690,7 @@ Randomness functions
 All these interfaces are exported by @code{include/g2hec_Genus2_ops.h} unless
 otherwise specified.
 @noindent
+@sp 1
 **************************************************************
 
 @node Genus 2 curve functions, Divisor functions, Tutorial, Top

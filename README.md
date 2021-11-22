@@ -1,5 +1,7 @@
 ![Build Status](https://github.com/syncom/libg2hec/actions/workflows/build-libg2hec.yml/badge.svg)
 ![CodeQL Static Analysis](https://github.com/syncom/libg2hec/actions/workflows/codeql-analysis.yml/badge.svg)
+![Docs Status](https://github.com/syncom/libg2hec/actions/workflows/publish-docs.yml/badge.svg)
+
 
 # THE G2HEC LIBRARY
 

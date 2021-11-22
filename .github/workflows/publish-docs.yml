@@ -1,4 +1,4 @@
-name: publish-libg2hec-docs
+name: "Documentation"
 on: 
   push:
     branches:

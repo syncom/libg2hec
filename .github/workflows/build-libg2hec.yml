@@ -1,4 +1,4 @@
-name: build-libg2hec
+name: "Build"
 on: 
   push:
     branches:

@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.69)
-AC_INIT([g2hec-lib], [1.0.0], [Ning Shang <geek@cerias.net>])
+AC_INIT([g2hec-lib], [1.0.1], [Ning Shang <geek@cerias.net>])
 # The foreign option allows using README.md instead of README for project
 AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_SRCDIR([src/divisor_negate.C])

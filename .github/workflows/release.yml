@@ -33,5 +33,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
-          artifacts: "g2hec-lib-${{ env.RELEASE_VERSION}}.tar.gz"
+          artifacts: "g2hec-lib-${{ env.RELEASE_VERSION }}.tar.gz"
           token: ${{ secrets.GITHUB_TOKEN }}

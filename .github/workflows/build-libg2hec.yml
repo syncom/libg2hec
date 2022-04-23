@@ -30,4 +30,4 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           autoreconf -vi
-          ./scripts/build.sh 
+          ./scripts/build.sh distcheck

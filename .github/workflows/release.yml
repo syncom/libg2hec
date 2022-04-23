@@ -1,0 +1,35 @@
+on:
+  push:
+    paths-ignore:
+      - 'demo/**'
+    tags:
+      - 'v*'
+name: Release
+jobs:
+  release-tarball:
+    name: Release
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set RELEASE_VERSION as tag version
+        run: |
+          echo "RELEASE_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+          echo "$RELEASE_VERSION"
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y autotools-dev autoconf texinfo build-essential
+      - name: Build release tarball
+        run: |
+          autoreconf -vi
+          ./scripts/build.sh
+      - name: Release versioned
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifacts: "g2hec-lib-${{ env.RELEASE_VERSION}}.tar.gz"
+          token: ${{ secrets.GITHUB_TOKEN }}

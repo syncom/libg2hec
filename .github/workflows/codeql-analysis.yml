@@ -73,7 +73,6 @@ jobs:
       run: |
         cd ${{ github.workspace }}
         autoreconf -vi
-        ./scripts/install-ntl-5.5.sh
         ./scripts/build.sh 
 
     - name: Perform CodeQL Analysis

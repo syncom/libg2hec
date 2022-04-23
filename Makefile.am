@@ -16,3 +16,4 @@ examples_elgamal_sig_CXXFLAGS = -Iinclude/
 examples_elgamal_sig_LDADD = src/libg2hec.a -lntl
 examples_elgamal_sig_SOURCES = examples/elgamal_sig.C
 
+AM_DISTCHECK_DVI_TARGET = pdf

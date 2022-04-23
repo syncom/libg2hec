@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Installation (The Genus 2 Crypto C++ Library v1.0.0)</title>
@@ -10,31 +10,22 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="index.html#Top" rel="up" title="Top">
-<link href="Quick-start.html#Quick-start" rel="next" title="Quick start">
-<link href="Overview.html#Overview" rel="prev" title="Overview">
+<link href="index.html" rel="start" title="Top">
+<link href="index.html" rel="up" title="Top">
+<link href="Quick-start.html" rel="next" title="Quick start">
+<link href="Overview.html" rel="prev" title="Overview">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smalllisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
@@ -46,14 +37,12 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<a name="Installation"></a>
-<div class="header">
+<span id="Installation"></span><div class="header">
 <p>
-Next: <a href="Quick-start.html#Quick-start" accesskey="n" rel="next">Quick start</a>, Previous: <a href="Overview.html#Overview" accesskey="p" rel="prev">Overview</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="Quick-start.html" accesskey="n" rel="next">Quick start</a>, Previous: <a href="Overview.html" accesskey="p" rel="prev">Overview</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <hr>
-<a name="Installation-1"></a>
-<h2 class="chapter">2 Installation</h2>
+<span id="Installation-1"></span><h2 class="chapter">2 Installation</h2>
 
 <p>The G2HEC library is dependent of V. Shoup&rsquo;s NTL library, which can be found at
 <a href="http://www.shoup.net/ntl/">NTL: A Library for doing Number Theory</a>.
@@ -67,8 +56,7 @@ installation has been tested on Linux and Solaris, and in Cygwin on Windows.
 <a href="https://github.com/syncom/libg2hec/tarball/vX.Y.Z">https://github.com/syncom/libg2hec/tarball/vX.Y.Z</a>. 
 Here &ldquo;X.Y.Z&rdquo; denotes the current version number, i.e., 1.0.0.
 </p>
-<a name="General-installation-instructions"></a>
-<h3 class="section">2.1 General installation instructions</h3>
+<span id="General-installation-instructions"></span><h3 class="section">2.1 General installation instructions</h3>
 <p>If the NTL library is installed in a standard system directory, then do the
 following:
 </p>
@@ -90,8 +78,7 @@ header files in
 <code>$HOME/nssw/include</code> and the compiled static library <code>libg2hec.a</code> in 
 <code>$HOME/nssw/lib/</code>.
 </p>
-<a name="NTL-not-in-default-location"></a>
-<h3 class="section">2.2 NTL not in default location</h3>
+<span id="NTL-not-in-default-location"></span><h3 class="section">2.2 NTL not in default location</h3>
 <p>If you have installed the NTL/GMP libraries into locations which require
 special include or library paths, you can pass them to <code>LDFLAGS</code> and 
 <code>CXXFLAGS</code> variables for the configure script.
@@ -106,8 +93,7 @@ For example (for bash)
 <p>Depending on whether GMP is found in the search path or not, the G2HEC library 
 is configured to build with or without GMP.
 </p>
-<a name="After-G2HEC-is-built"></a>
-<h3 class="section">2.3 After G2HEC is built</h3>
+<span id="After-G2HEC-is-built"></span><h3 class="section">2.3 After G2HEC is built</h3>
 <p>After the library is built, executing <code>make check</code> runs some test 
 programs.
 </p>
@@ -160,7 +146,7 @@ standard directories.
 <hr>
 <div class="header">
 <p>
-Next: <a href="Quick-start.html#Quick-start" accesskey="n" rel="next">Quick start</a>, Previous: <a href="Overview.html#Overview" accesskey="p" rel="prev">Overview</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="Quick-start.html" accesskey="n" rel="next">Quick start</a>, Previous: <a href="Overview.html" accesskey="p" rel="prev">Overview</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 
 

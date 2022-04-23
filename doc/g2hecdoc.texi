@@ -1,27 +1,27 @@
 \input texinfo @c -*-texinfo-*-
 @c %** start of header 
 @setfilename g2hecdoc.info
-@settitle The Genus 2 Crypto C++ Library v1.0.0
+@settitle The Genus 2 Crypto C++ Library v1.0.1
 @c %** end of header
 
 @c %** Summary description and copyright. Appears only in info file.
 @ifinfo
-This is a help file for the g2hec library version 1.0.0.
+This is a help file for the g2hec library version 1.0.1.
 
-Copyright @copyright{} 2008-2021 N. Shang.
+Copyright @copyright{} 2008-2022 N. Shang.
 @end ifinfo
 @c %** end of summary description and copyright
 
 @c %** Titlepage, contents, copyright
 @titlepage
-@title The Genus 2 Crypto C++ Library v1.0.0
+@title The Genus 2 Crypto C++ Library v1.0.1
 @author Ning Shang
 
 @c The following comments start the copyright page.
 @page
 @vskip 0pt plus 1filll
 
-Copyright @copyright{} 2008-2021 N. Shang.
+Copyright @copyright{} 2008-2022 N. Shang.
 
 @ifnothtml
 @c Output the table of contents
@@ -115,7 +115,7 @@ has leading coefficient 1) of degree 5, @math{h(x)} has degree not greater
 than 2, @math{q} is a prime or a power of a prime.
 
 @sp 1
-Currently (version 1.0.0) G2HEC only supports odd prime @math{q} by default. 
+Currently (version 1.0.1) G2HEC only supports odd prime @math{q} by default. 
 You can ``hack'' the header file in @code{include/g2hec_nsfieldtype.h} to 
 switch its support to @math{q} as a power of an odd prime.  However, we do not 
 recommend to do so and it should be avoided except in extreme cases. So far 

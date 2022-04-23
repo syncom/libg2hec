@@ -40,6 +40,7 @@ The G2HEC library is released under the GNU Lesser General Public
 License Version 2.1.  See the file COPYING for details.
 
 ## How to build
+
 On Ubuntu,
 
 ```bash
@@ -48,17 +49,20 @@ $ cd libg2hec/
 $ sudo apt-get install autotools-dev autoconf texinfo build-essential
 # Bootstrap
 $ autoreconf -vi
-# Build NTL
-$ ./scripts/install-ntl-5.5.sh
-# Build libg2hec
+# Build NTL and libg2hec
 $ ./scripts/build.sh
 # Install libg2hec
 $ make install 
 ```
 
-This installs NTL and libg2hec (including documentation) in `/tmp/nssw/`
-by default. You may configure different paths in build scripts in
-`scripts/` for the installation.
+This installs NTL and libg2hec (including documentation) in a temporary
+directory by default (useful for CI testing). You may override the
+installation location using the `INSTALL_DIR_PREFIX` environment
+variable when calling `./script/build.sh`, e.g.,
+
+```bash
+INSTALL_DIR_PREFIX=/tmp/nssw ./script/build.sh
+```
 
 ## Documentation
 

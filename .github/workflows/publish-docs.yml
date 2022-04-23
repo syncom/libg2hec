@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04]
+        os: [ubuntu-20.04]
         #compiler_c: [clang]
         #compiler_cxx: [clang++]
     steps:
@@ -19,9 +19,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Install dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y texinfo
-          sudo apt-get install -y autotools-dev autoconf build-essential
+          sudo apt update
+          sudo apt install -y texinfo
+          sudo apt install -y autotools-dev autoconf build-essential
       - name: Publish docs
         #env:
         #  CC: ${{ matrix.compiler_c }}

@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-20.04]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -21,12 +21,14 @@ jobs:
           echo "$RELEASE_VERSION"
       - name: Install dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y autotools-dev autoconf texinfo build-essential
+          sudo apt update
+          sudo apt install -y texinfo
+          sudo apt install -y texlive-latex-extra
+          sudo apt install -y autotools-dev autoconf build-essential
       - name: Build release tarball
         run: |
           autoreconf -vi
-          ./scripts/build.sh
+          ./scripts/build.sh distcheck
       - name: Release versioned
         uses: ncipollo/release-action@v1
         with:

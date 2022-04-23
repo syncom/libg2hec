@@ -23,8 +23,8 @@ jobs:
       - if: ${{ matrix.os == 'ubuntu-latest' }}
         name: Install shellcheck on Ubuntu
         run: |
-          sudo apt-get update
-          sudo apt-get install shellcheck -y
+          sudo apt update
+          sudo apt install shellcheck -y
 
       - if: ${{ matrix.os == 'macos-latest' }}
         name: Install shellcheck on macos

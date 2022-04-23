@@ -28,7 +28,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-18.04]
+        os: [ubuntu-20.04]
         compiler_c: [gcc]
         compiler_cxx: [g++]
         language: [ 'cpp' ]

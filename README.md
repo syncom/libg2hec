@@ -46,7 +46,7 @@ On Ubuntu,
 ```bash
 $ cd libg2hec/
 # Install dependencies
-$ sudo apt-get install autotools-dev autoconf texinfo build-essential
+$ sudo apt install autotools-dev autoconf texinfo build-essential bear
 # Bootstrap
 $ autoreconf -vi
 # Build NTL and libg2hec

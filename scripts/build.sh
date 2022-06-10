@@ -18,7 +18,8 @@ env LDFLAGS="-L${INSTALL_DIR_PREFIX}/lib" \
     CXXFLAGS="-I${INSTALL_DIR_PREFIX}/include" \
     ./configure \
     --prefix="${INSTALL_DIR_PREFIX}"
-make
+make clean
+bear make
 
 if [ "$#" -ge 1 ] && [ "$1" = "distcheck" ]; then
   echo "Creating tarball for distribution"

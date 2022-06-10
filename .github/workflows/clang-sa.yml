@@ -1,0 +1,43 @@
+# Static analysis via clang static analyzer
+name: "Clang Static Analysis"
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [master]
+
+jobs:
+  sacheck:
+    name: "Clang Static Analysis"
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -euxo pipefail {0}
+    strategy:
+      fail-fast: false
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        # We must fetch at least the immediate parents so that if this is
+        # a pull request then we can checkout the head.
+        fetch-depth: 2
+        submodules: 'recursive'
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y texinfo texlive-latex-extra
+        sudo apt install -y autotools-dev autoconf build-essential bear
+        sudo apt install clang-tools-10 -y
+        sudo ln -sf /usr/bin/clang-check-10 /usr/bin/clang-check
+
+    # Run static analysis
+    - name: Run clang static analysis
+      run: |
+        cd ${{ github.workspace }}
+        autoreconf -vi
+        scripts/sa-check.sh

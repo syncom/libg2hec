@@ -37,7 +37,7 @@ jobs:
           cd ${{ github.workspace }}/
           shellcheck --version
           for f in $(find scripts/ -type f); do
-            if file "$f" | grep -q "shell script"; then
+            if file "$f" | grep "shell script" &>/dev/null; then
               shellcheck "$f"
             fi
           done

@@ -32,8 +32,8 @@ jobs:
         sudo apt update
         sudo apt install -y texinfo texlive-latex-extra
         sudo apt install -y autotools-dev autoconf build-essential bear
-        sudo apt install clang-tools-10 -y
-        sudo ln -sf /usr/bin/clang-check-10 /usr/bin/clang-check
+        sudo apt install clang-tools-14 -y
+        sudo ln -sf /usr/bin/clang-check-14 /usr/bin/clang-check
 
     # Run static analysis
     - name: Run clang static analysis

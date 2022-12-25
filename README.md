@@ -1,13 +1,9 @@
-![Build Status](https://github.com/syncom/libg2hec/actions/workflows/build-libg2hec.yml/badge.svg)
-![CodeQL Static Analysis](https://github.com/syncom/libg2hec/actions/workflows/codeql-analysis.yml/badge.svg)
-![Docs Status](https://github.com/syncom/libg2hec/actions/workflows/publish-docs.yml/badge.svg)
-
-
 # THE G2HEC LIBRARY
 
-Ning Shang <geek@cerias.net>
-
----
+[![Build Status](https://github.com/syncom/libg2hec/actions/workflows/build-libg2hec.yml/badge.svg)](https://github.com/syncom/libg2hec/actions/workflows/build-libg2hec.yml)
+[![Shellcheck](https://github.com/syncom/libg2hec/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/syncom/libg2hec/actions/workflows/shellcheck.yml)
+[![CodeQL Static Analysis](https://github.com/syncom/libg2hec/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/syncom/libg2hec/actions/workflows/codeql-analysis.yml)
+[![Docs Status](https://github.com/syncom/libg2hec/actions/workflows/publish-docs.yml/badge.svg)](https://github.com/syncom/libg2hec/actions/workflows/publish-docs.yml)
 
 The G2HEC (Genus 2 HyperElliptic Curve) library is a free portable C++
 library providing divisor group operations in the Jacobian of genus 2
@@ -66,4 +62,4 @@ INSTALL_DIR_PREFIX=/tmp/nssw ./script/build.sh
 
 ## Documentation
 
-[https://syncom.github.io/libg2hec/](https://syncom.github.io/libg2hec/)
+<https://syncom.github.io/libg2hec/>

@@ -3,6 +3,7 @@
 [![Build Status](https://github.com/syncom/libg2hec/actions/workflows/build-libg2hec.yml/badge.svg)](https://github.com/syncom/libg2hec/actions/workflows/build-libg2hec.yml)
 [![Shellcheck](https://github.com/syncom/libg2hec/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/syncom/libg2hec/actions/workflows/shellcheck.yml)
 [![CodeQL Static Analysis](https://github.com/syncom/libg2hec/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/syncom/libg2hec/actions/workflows/codeql-analysis.yml)
+[![Clang Static Analysis](https://github.com/syncom/libg2hec/actions/workflows/clang-sa.yml/badge.svg)](https://github.com/syncom/libg2hec/actions/workflows/clang-sa.yml)
 [![Docs Status](https://github.com/syncom/libg2hec/actions/workflows/publish-docs.yml/badge.svg)](https://github.com/syncom/libg2hec/actions/workflows/publish-docs.yml)
 
 The G2HEC (Genus 2 HyperElliptic Curve) library is a free portable C++

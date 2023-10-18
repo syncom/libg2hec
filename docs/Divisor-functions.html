@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Divisor functions (The Genus 2 Crypto C++ Library v1.0.1)</title>
@@ -10,17 +10,19 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="index.html" rel="up" title="Top">
 <link href="Divisor-arithmetic.html" rel="next" title="Divisor arithmetic">
 <link href="Genus-2-curve-functions.html" rel="prev" title="Genus 2 curve functions">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -29,6 +31,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -37,16 +40,17 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Divisor-functions"></span><div class="header">
+<div class="chapter" id="Divisor-functions">
+<div class="header">
 <p>
-Next: <a href="Divisor-arithmetic.html" accesskey="n" rel="next">Divisor arithmetic</a>, Previous: <a href="Genus-2-curve-functions.html" accesskey="p" rel="prev">Genus 2 curve functions</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="Divisor-arithmetic.html" accesskey="n" rel="next">Divisor arithmetic</a>, Previous: <a href="Genus-2-curve-functions.html" accesskey="p" rel="prev">Genus 2 curve functions</a>, Up: <a href="index.html" accesskey="u" rel="up">Preface</a> &nbsp; </p>
 </div>
 <hr>
 <span id="Divisor-functions-1"></span><h2 class="chapter">6 Divisor functions</h2>
-<p>A divisor (class) is a pair of polynomials <em>[u(x), v(x)]</em> over 
-<em>GF(q)</em>
-with <em>\deg{v}&lt;\deg{u}\le 2</em> so that they satisfy certain conditions 
-related to the curve <em>C</em>.  Therefore, every divisor (class) has a 
+<p>A divisor (class) is a pair of polynomials <em class='math'>[u(x), v(x)]</em> over 
+<em class='math'>GF(q)</em>
+with <em class='math'>\deg{v}&lt;\deg{u}\le 2</em> so that they satisfy certain conditions 
+related to the curve <em class='math'>C</em>.  Therefore, every divisor (class) has a 
 curve to associate with.  G2HEC use a C++ class <code>divisor</code> to hold
 a divisor.
 </p>
@@ -64,12 +68,12 @@ another important convention of G2HEC.
 </p>
 <br>
 <p><code>divisor()</code>: </p><br>
-<p>default constructor; sets <em>u(x) = 1, v(x) = 0</em>, and associated curve
-as <em>y^2 = 0</em>. A divisor is not valid by default.
+<p>default constructor; sets <em class='math'>u(x) = 1, v(x) = 0</em>, and associated curve
+as <em class='math'>y^2 = 0</em>. A divisor is not valid by default.
 </p>
 <br>
 <p><code>divisor(const poly_tc&amp; polyu, const poly_tc&amp; polyv, const g2hcurve&amp; curve)</code>: </p><br>
-<p>constructor; set <em>u(x) = </em><code>polyu</code>, <em>v(x) = </em><code>polyv</code>, and 
+<p>constructor; set <em class='math'>u(x) = </em><code>polyu</code>, <em class='math'>v(x) = </em><code>polyv</code>, and 
 associated curve to <code>curve</code>.
 </p>
 <br>
@@ -78,11 +82,11 @@ associated curve to <code>curve</code>.
 </p>
 <br>
 <p><code>void set_upoly(poly_tc&amp; poly)</code>: </p><br>
-<p>sets <em>u(x)</em> to <code>poly</code> for the divisor.
+<p>sets <em class='math'>u(x)</em> to <code>poly</code> for the divisor.
 </p>
 <br>
 <p><code>void set_vpoly(poly_tc&amp; poly)</code>: </p><br>
-<p>sets <em>v(x)</em> to <code>poly</code> for the divisor.
+<p>sets <em class='math'>v(x)</em> to <code>poly</code> for the divisor.
 </p>
 <br>
 <p><code>void set_curve(const g2hcurve&amp; curve)</code>: </p><br>
@@ -97,11 +101,11 @@ Otherwise error make occur when operations on divisor are performed.
 </p>
 <br>
 <p><code>const poly_tc&amp; get_upoly()</code>: </p><br>
-<p>returns <em>u(x)</em> of the divisor.
+<p>returns <em class='math'>u(x)</em> of the divisor.
 </p>
 <br>
 <p><code>const poly_tc&amp; get_vpoly()</code>: </p><br>
-<p>returns <em>v(x)</em> of the divisor.
+<p>returns <em class='math'>v(x)</em> of the divisor.
 </p>
 <br>
 <p><code>const g2hcurve&amp; get_curve()</code>: </p><br>
@@ -114,11 +118,11 @@ otherwise.
 </p>
 <br>
 <p><code>bool_t is_unit()</code>: </p><br>
-<p>tests if the divisor is the unit divisor <em>[1, 0]</em>.
+<p>tests if the divisor is the unit divisor <em class='math'>[1, 0]</em>.
 </p>
 <br>
 <p><code>set_unit()</code>: </p><br>
-<p>sets the divisor to the unit divisor <em>[1, 0]</em>.
+<p>sets the divisor to the unit divisor <em class='math'>[1, 0]</em>.
 </p>
 <br>
 <p>You can write <code>divisor1 = divisor2</code> to assign the value of <code>divisor2</code>
@@ -136,10 +140,11 @@ do not need to be valid for such comparisons.
 curve.  According to the way G2HEC implements the <code>divisor</code> class,
 this function always returns <code>TRUE</code>. Therefore this test is redundant.
 </p>
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="Divisor-arithmetic.html" accesskey="n" rel="next">Divisor arithmetic</a>, Previous: <a href="Genus-2-curve-functions.html" accesskey="p" rel="prev">Genus 2 curve functions</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="Divisor-arithmetic.html">Divisor arithmetic</a>, Previous: <a href="Genus-2-curve-functions.html">Genus 2 curve functions</a>, Up: <a href="index.html">Preface</a> &nbsp; </p>
 </div>
 
 

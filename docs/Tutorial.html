@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Tutorial (The Genus 2 Crypto C++ Library v1.0.1)</title>
@@ -10,17 +10,19 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="index.html" rel="up" title="Top">
 <link href="Genus-2-curve-functions.html" rel="next" title="Genus 2 curve functions">
 <link href="Quick-start.html" rel="prev" title="Quick start">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -29,6 +31,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -37,15 +40,22 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Tutorial"></span><div class="header">
+<div class="chapter" id="Tutorial">
+<div class="header">
 <p>
-Next: <a href="Genus-2-curve-functions.html" accesskey="n" rel="next">Genus 2 curve functions</a>, Previous: <a href="Quick-start.html" accesskey="p" rel="prev">Quick start</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="Genus-2-curve-functions.html" accesskey="n" rel="next">Genus 2 curve functions</a>, Previous: <a href="Quick-start.html" accesskey="p" rel="prev">Quick start</a>, Up: <a href="index.html" accesskey="u" rel="up">Preface</a> &nbsp; </p>
 </div>
 <hr>
 <span id="Tutorial-1"></span><h2 class="chapter">4 Tutorial</h2>
 <p>We shall walk you through several cryptographic applications of G2HEC.
 </p>
-<span id="HEC_002dDiffie_002dHellman-key-exchange"></span><h3 class="section">4.1 HEC-Diffie-Hellman key exchange</h3>
+<ul class="section-toc">
+<li><a href="#HEC_002dDiffie_002dHellman-key-exchange" accesskey="1">HEC-Diffie-Hellman key exchange</a></li>
+<li><a href="#HEC_002dElGamal-encryption" accesskey="2">HEC-ElGamal encryption</a></li>
+<li><a href="#HEC_002dElGamal-digital-signature" accesskey="3">HEC-ElGamal digital signature</a></li>
+</ul>
+<div class="section" id="HEC_002dDiffie_002dHellman-key-exchange">
+<h3 class="section">4.1 HEC-Diffie-Hellman key exchange</h3>
 <p>The basic Diffie-Hellman key exchange protocol works as follows:
 </p>
 <br>
@@ -53,31 +63,31 @@ Next: <a href="Genus-2-curve-functions.html" accesskey="n" rel="next">Genus 2 cu
 without having to exchange any information previously.  
 </p>
 <br>
-<p>They agree on an element <em>P</em> in the Jacobian of the genus 2 curve 
-<em>C</em> with a large (known or unknown) order <em>G</em>.
+<p>They agree on an element <em class='math'>P</em> in the Jacobian of the genus 2 curve 
+<em class='math'>C</em> with a large (known or unknown) order <em class='math'>G</em>.
 </p><ol>
-<li> Alice generates a random integer <em>a \in {1, \ldots, \#G - 1}</em>, then
+<li> Alice generates a random integer <em class='math'>a \in {1, \ldots, \#G - 1}</em>, then
 sends to Bob the element (divisor) 
-<div align="center"><em>Q_1 = [a] P</em>.
+<div align="center"><em class='math'>Q_1 = [a] P</em>.
 </div>
-</li><li> Bob generates a random integer <em>b \in {1, \ldots, \#G - 1}</em>, then
+</li><li> Bob generates a random integer <em class='math'>b \in {1, \ldots, \#G - 1}</em>, then
 sends to Alice the element (divisor)
-<div align="center"><em>Q_2 = [b] P</em>.
+<div align="center"><em class='math'>Q_2 = [b] P</em>.
 </div>
 </li><li> Alice then computes
-<div align="center"><em>[ab] P = [a] Q_2</em>.
+<div align="center"><em class='math'>[ab] P = [a] Q_2</em>.
 </div>
 </li><li> Similarly, Bob computes
-<div align="center"><em>[ab] P = [b] Q_1</em>.
+<div align="center"><em class='math'>[ab] P = [b] Q_1</em>.
 </div></li></ol>
 
 <br>
-<p>This element <em>[ab] P</em> now serves as the secret that only Alice and Bob 
+<p>This element <em class='math'>[ab] P</em> now serves as the secret that only Alice and Bob 
 know.
 </p>
 <br>
 <p>We illustrate a local version of this protocol using a genus 2 curve over a 
-prime field <em>GF(p)</em>, for an educational purpose.
+prime field <em class='math'>GF(p)</em>, for an educational purpose.
 </p>
 <br>
 <p>First we include the header file g2hec_Genus2_ops.h:
@@ -87,7 +97,7 @@ prime field <em>GF(p)</em>, for an educational purpose.
 
 <br>
 <p>Then we define the maximum length (in decimal digits) of the prime number
-<em>p</em> to be 300:
+<em class='math'>p</em> to be 300:
 </p><div class="example">
 <pre class="example">#undef MAX_STRING_LEN
 #define MAX_STRING_LEN 300
@@ -119,7 +129,7 @@ prime number:
 </pre></div>
 
 <br>
-<p>Now we initialize the underline prime field <em>GF(p)</em>:
+<p>Now we initialize the underline prime field <em class='math'>GF(p)</em>:
 </p><div class="example">
 <pre class="example">field_t::init(pZZ);
 </pre></div>
@@ -148,15 +158,15 @@ to work for all divisors.
 
 <br>
 <p>To perform Diffie-Hellman key exchange, it is not necessary to know the order 
-of <em>P</em>.  A fact is that this order is close to  <em>p^2</em>. So we choose
-<em>a</em> and <em>b</em> to be two random number bounded by <em>p^2</em>.
+of <em class='math'>P</em>.  A fact is that this order is close to  <em class='math'>p^2</em>. So we choose
+<em class='math'>a</em> and <em class='math'>b</em> to be two random number bounded by <em class='math'>p^2</em>.
 </p><div class="example">
 <pre class="example">RandomBnd(a, pZZ*pZZ);
 RandomBnd(b, pZZ*pZZ);
 </pre></div>
 
 <br>
-<p>We generate a random base point <em>P</em>:
+<p>We generate a random base point <em class='math'>P</em>:
 </p><div class="example">
 <pre class="example">P.random();
 </pre></div>
@@ -175,7 +185,7 @@ RandomBnd(b, pZZ*pZZ);
 
 <br>
 <p>A successful key exchange should yield the shared secret 
-</p><div align="center"><em>[ab]P = [a] Q_2 = [b] Q_1</em>:
+</p><div align="center"><em class='math'>[ab]P = [a] Q_2 = [b] Q_1</em>:
 </div><div class="example">
 <pre class="example">if ( b * Q1 == a * Q2)
   cout &lt;&lt; &quot;DH key exchange succeeded!&quot; &lt;&lt; endl;
@@ -186,11 +196,15 @@ else
 <br>
 <p>A complete source file for this example can be found in <code>example/dh.C</code>.
 </p>
-<span id="HEC_002dElGamal-encryption"></span><h3 class="section">4.2 HEC-ElGamal encryption</h3>
+</div>
+<div class="section" id="HEC_002dElGamal-encryption">
+<h3 class="section">4.2 HEC-ElGamal encryption</h3>
 <p>This example is similar to the Diffie-Hellman key exchange example.  Please 
 refer to the source file in <code>examples/elgamal_enc.C</code> for details.
 </p>
-<span id="HEC_002dElGamal-digital-signature"></span><h3 class="section">4.3 HEC-ElGamal digital signature</h3>
+</div>
+<div class="section" id="HEC_002dElGamal-digital-signature">
+<h3 class="section">4.3 HEC-ElGamal digital signature</h3>
 <p>We shall use G2HEC to build a digital signature scheme: the ElGamal digital 
 signature.
 </p>
@@ -198,48 +212,48 @@ signature.
 <p>Recall how this signature scheme works:
 </p>
 <br>
-<p>Bob chooses a genus 2 curve <em>C</em> and a prime number <em>p</em> so that the
-number of <em>GF(p</em>)-rational points of the Jacobian of <em>C</em> has a large
-prime factor <em>N</em> &ndash; preferably the number itself is prime. He then chooses
-a divisor <em>g</em> of order <em>N</em>, a secret private key <em>x\in\{1, 
-\ldots, N - 1\}</em>, then computes a divisor <em>h = [x] g</em>. Bob publishes 
-<em>g</em> and <em>h</em> as his public key.
+<p>Bob chooses a genus 2 curve <em class='math'>C</em> and a prime number <em class='math'>p</em> so that the
+number of <em class='math'>GF(p</em>)-rational points of the Jacobian of <em class='math'>C</em> has a large
+prime factor <em class='math'>N</em> &ndash; preferably the number itself is prime. He then chooses
+a divisor <em class='math'>g</em> of order <em class='math'>N</em>, a secret private key <em class='math'>x\in\{1, 
+\ldots, N - 1\}</em>, then computes a divisor <em class='math'>h = [x] g</em>. Bob publishes 
+<em class='math'>g</em> and <em class='math'>h</em> as his public key.
 </p>
 <br>
-<p>To sign a message <em>m \in Z/(N)</em>, Bob first generates a random integer
-<em>i \in {1, \ldots, N - 1}</em>, and computes
-</p><div align="center"><em>a = [k] g</em>.
+<p>To sign a message <em class='math'>m \in Z/(N)</em>, Bob first generates a random integer
+<em class='math'>i \in {1, \ldots, N - 1}</em>, and computes
+</p><div align="center"><em class='math'>a = [k] g</em>.
 </div>
 <br>
-<p>Bob then computes a solution, <em>b \in Z/(N)</em> to the congruence
-</p><div align="center"><em>m &equiv; x f(a) + b k (mod N) </em>.
-</div><p>Here <em>f</em> is a map from the Jacobian of <em>C</em> to <em>Z/(N)</em> which
+<p>Bob then computes a solution, <em class='math'>b \in Z/(N)</em> to the congruence
+</p><div align="center"><em class='math'>m &equiv; x f(a) + b k (mod N) </em>.
+</div><p>Here <em class='math'>f</em> is a map from the Jacobian of <em class='math'>C</em> to <em class='math'>Z/(N)</em> which
 is almost injective.
 </p>
 <br>
-<p>Bob sends the signature <em>(a, b)</em> together with the message <em>m</em> 
+<p>Bob sends the signature <em class='math'>(a, b)</em> together with the message <em class='math'>m</em> 
 to Alice.
 </p>
 <br>
 <p>Upon receiving the message and signature from Bob, Alice verifies the signature
 by checking that 
-</p><div align="center"><em>[f(a)] h + [b] a = [m] g</em>
+</p><div align="center"><em class='math'>[f(a)] h + [b] a = [m] g</em>
 </div><p>holds.
 </p>
 <br>
 <p>It needs to be point out that a technical aspect of this algorithm involves
-the choice of the curve <em>C</em> and the prime number <em>p</em> so that its
+the choice of the curve <em class='math'>C</em> and the prime number <em class='math'>p</em> so that its
 Jacobian has an order divisible by a large prime number.  This is not a 
 trivial task &ndash; it involves quite amount of mathematics.  Fortunately, there
 are published data that users can use directly to avoid this difficulty.
 According to the paper &ldquo;Construction of Secure Random Curves of Genus 2
 over Prime Fields&rdquo; by Gaudry and Schost, we choose to use in our example
 the curve
-with <em>p =  5 \cdot 10^{24} + 850349</em>.  The order of the Jacobian of the
+with <em class='math'>p =  5 \cdot 10^{24} + 850349</em>.  The order of the Jacobian of the
 curve is a prime number
-</p><div align="center"><em>N = 2499999999999413043860099940220946396619751607569,</em>
+</p><div align="center"><em class='math'>N = 2499999999999413043860099940220946396619751607569,</em>
 </div><p>which is to our best interest.  In this case, we can pick any random non-unit
-divisor <em>g</em> as our base point.
+divisor <em class='math'>g</em> as our base point.
 </p>
 <br>
 <p>At this point, we are able present a local version of this signature scheme.
@@ -252,7 +266,7 @@ divisor <em>g</em> as our base point.
 
 <br>
 <p>Then we define some macros that we are going to use, including the values of
-coefficients of the polynomial <em>f</em>, the prime number <em>p</em>, the group 
+coefficients of the polynomial <em class='math'>f</em>, the prime number <em class='math'>p</em>, the group 
 order of the Jacobian, and a function that maps a suitable value to an NTL 
 <code>ZZ_p</code> object.
 </p>
@@ -275,7 +289,7 @@ order of the Jacobian, and a function that maps a suitable value to an NTL
 
 <br>
 <p>Recall that we need an almost bijection that maps elements in the Jacobian to
-an element in <em>{1, \ldots, N - 1}</em>.  This map can be chosen as follows:
+an element in <em class='math'>{1, \ldots, N - 1}</em>.  This map can be chosen as follows:
 </p><div class="example">
 <pre class="example">static ZZ from_divisor_to_ZZ(const divisor&amp; div, const ZZ&amp; n)
 {
@@ -285,9 +299,9 @@ an element in <em>{1, \ldots, N - 1}</em>.  This map can be chosen as follows:
 }
 </pre></div>
 <p>We just mention that we choose this function to take a divisor 
-</p><div align="center"><em>[u(x), v(x)]</em>
+</p><div align="center"><em class='math'>[u(x), v(x)]</em>
 </div><p>to the value defined by the sum of the squares of the degree 0 and degree 1
-coefficients modulo the group order <em>N</em> of the Jacobian.  Users can 
+coefficients modulo the group order <em class='math'>N</em> of the Jacobian.  Users can 
 define their own such function to use.  Security might be affected by bad
 choice of this almost injective function.
 </p>
@@ -316,7 +330,7 @@ declaring and define several values:
 </pre></div>
 
 <br>
-<p>Then we manually assign values of polynomial <em>f</em> and define the 
+<p>Then we manually assign values of polynomial <em class='math'>f</em> and define the 
 corresponding genus 2 curve:
 </p><div class="example">
 <pre class="example">  SetCoeff(f, 5, 1);
@@ -335,7 +349,7 @@ corresponding genus 2 curve:
 </pre></div>
 <p>This will update some flags related to properties of the curve, and needs to 
 be done immediately after manual assignments to the curve&rsquo;s defining elements
-(e.g., the polynomial <em>f</em>).
+(e.g., the polynomial <em class='math'>f</em>).
 </p>
 <br>
 <p>Now we are ready to set the curve as the underlying curve of the divisors.
@@ -344,8 +358,8 @@ be done immediately after manual assignments to the curve&rsquo;s defining eleme
 </pre></div>
 
 <br>
-<p>We randomly choose the base point <em>g</em>, message <em>m</em> to be signed, the 
-private key <em>x</em>, and the public key <em>h</em>:
+<p>We randomly choose the base point <em class='math'>g</em>, message <em class='math'>m</em> to be signed, the 
+private key <em class='math'>x</em>, and the public key <em class='math'>h</em>:
 </p><div class="example">
 <pre class="example">  do {
     g.random();
@@ -359,12 +373,12 @@ private key <em>x</em>, and the public key <em>h</em>:
 
   h = x * g;
 </pre></div>
-<p>Note that we want the base point <em>g</em> to be any divisor except the unit 
-divisor, and we do not allow the private key <em>x</em> to be 0.  This is what
-the <em>do...while</em> statements do.
+<p>Note that we want the base point <em class='math'>g</em> to be any divisor except the unit 
+divisor, and we do not allow the private key <em class='math'>x</em> to be 0.  This is what
+the <em class='math'>do...while</em> statements do.
 </p>
 <br>
-<p>Now we shall generate the ElGamal signature <em>(a, b)</em>:
+<p>Now we shall generate the ElGamal signature <em class='math'>(a, b)</em>:
 </p><div class="example">
 <pre class="example">  do {
     RandomBnd(k, order);
@@ -377,8 +391,8 @@ the <em>do...while</em> statements do.
   /* b = (m - x*f(a))/k mod N */
   b = MulMod(m - x * f_a, InvMod(k, order), order);
 </pre></div>
-<p>The element <code>f_a</code> holds the value <em>f(a)</em> given by the almost 
-injection applied to the divisor <em>a</em>.
+<p>The element <code>f_a</code> holds the value <em class='math'>f(a)</em> given by the almost 
+injection applied to the divisor <em class='math'>a</em>.
 </p>
 <br>
 <p>Alright!  Now the most exciting moment has arrived &ndash; signature verification:
@@ -415,10 +429,12 @@ otherwise specified.
 </p><br>
 <p>**************************************************************
 </p>
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="Genus-2-curve-functions.html" accesskey="n" rel="next">Genus 2 curve functions</a>, Previous: <a href="Quick-start.html" accesskey="p" rel="prev">Quick start</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="Genus-2-curve-functions.html">Genus 2 curve functions</a>, Previous: <a href="Quick-start.html">Quick start</a>, Up: <a href="index.html">Preface</a> &nbsp; </p>
 </div>
 
 

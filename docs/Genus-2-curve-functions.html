@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Genus 2 curve functions (The Genus 2 Crypto C++ Library v1.0.1)</title>
@@ -10,17 +10,19 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="index.html" rel="up" title="Top">
 <link href="Divisor-functions.html" rel="next" title="Divisor functions">
 <link href="Tutorial.html" rel="prev" title="Tutorial">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -29,6 +31,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -37,18 +40,19 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Genus-2-curve-functions"></span><div class="header">
+<div class="chapter" id="Genus-2-curve-functions">
+<div class="header">
 <p>
-Next: <a href="Divisor-functions.html" accesskey="n" rel="next">Divisor functions</a>, Previous: <a href="Tutorial.html" accesskey="p" rel="prev">Tutorial</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="Divisor-functions.html" accesskey="n" rel="next">Divisor functions</a>, Previous: <a href="Tutorial.html" accesskey="p" rel="prev">Tutorial</a>, Up: <a href="index.html" accesskey="u" rel="up">Preface</a> &nbsp; </p>
 </div>
 <hr>
 <span id="Genus-2-curve-functions-1"></span><h2 class="chapter">5 Genus 2 curve functions</h2>
 <p>We only consider the so-called &ldquo;imaginary&rdquo; genus 2 curves, i.e., curves given
 by the equation
-</p><div align="center"><em>C: y^2 + h(x) y = f(x),</em>
-</div><p>with <em>\deg{h}\le 2</em> and <em>\deg{f} = 5</em>.  We also require that 
-<em>C</em> 
-be nonsingular and the leading coefficient of <em>f(x)</em> be 1. 
+</p><div align="center"><em class='math'>C: y^2 + h(x) y = f(x),</em>
+</div><p>with <em class='math'>\deg{h}\le 2</em> and <em class='math'>\deg{f} = 5</em>.  We also require that 
+<em class='math'>C</em> 
+be nonsingular and the leading coefficient of <em class='math'>f(x)</em> be 1. 
 </p>
 <br>
 <p>Types <code>field_t</code> and <code>poly_t</code> are for the field element 
@@ -65,11 +69,11 @@ the file <code>include/g2hec_Genus2_ops.h</code>.
 </p>
 <br>
 <p><code>g2hcurve()</code>: </p><br>
-<p>default constructor; set curve to <em>y^2 = 0</em>.
+<p>default constructor; set curve to <em class='math'>y^2 = 0</em>.
 </p>
 <br>
 <p><code>g2hcurve(const poly_tc&amp; poly1, const poly_tc&amp; poly2)</code>: </p><br>
-<p>constructor; sets curve to <em>y^2 + <code>poly2</code>*y = <code>poly1</code></em>.
+<p>constructor; sets curve to <em class='math'>y^2 + <code>poly2</code>*y = <code>poly1</code></em>.
 </p>
 <br>
 <p><code>g2hcurve(const g2hcurve&amp; hcurve)</code>: </p><br>
@@ -77,11 +81,11 @@ the file <code>include/g2hec_Genus2_ops.h</code>.
 </p>
 <br>
 <p><code>void set_f(const poly_tc&amp; poly)</code>: </p><br>
-<p>sets <em>f(x)</em> to <code>poly</code>.
+<p>sets <em class='math'>f(x)</em> to <code>poly</code>.
 </p>
 <br>
 <p><code>void set_h(const poly_tc&amp; poly)</code>: </p><br>
-<p>sets <em>h(x)</em> to <code>poly</code>.
+<p>sets <em class='math'>h(x)</em> to <code>poly</code>.
 </p>
 <br>
 <p><code>void update()</code>: </p><br>
@@ -94,15 +98,15 @@ may occur.
 </p>
 <br>
 <p><code>const poly_tc&amp; get_f()</code>: </p><br>
-<p>returns reference to polynomial <em>f(x)</em>.
+<p>returns reference to polynomial <em class='math'>f(x)</em>.
 </p>
 <br>
 <p><code>const poly_tc&amp; get_h()</code>: </p><br>
-<p>returns reference to polynomial <em>h(x)</em>.
+<p>returns reference to polynomial <em class='math'>h(x)</em>.
 </p>
 <br>
 <p><code>bool_t is_valid_curve()</code>: </p><br>
-<p>returns TRUE is curve is nonsingular, genus 2, and <em>f(x)</em> is monic.
+<p>returns TRUE is curve is nonsingular, genus 2, and <em class='math'>f(x)</em> is monic.
 </p>
 <br>
 <p>You can also write <code>curve1 = curve2</code> naturally to set the value of 
@@ -114,10 +118,11 @@ may occur.
 <code>curve1 == curve2</code> or <code>curve1 != curve2</code> to test if two curves
 are the same.  Curves do not need to be valid for these comparisons.
 </p>
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="Divisor-functions.html" accesskey="n" rel="next">Divisor functions</a>, Previous: <a href="Tutorial.html" accesskey="p" rel="prev">Tutorial</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="Divisor-functions.html">Divisor functions</a>, Previous: <a href="Tutorial.html">Tutorial</a>, Up: <a href="index.html">Preface</a> &nbsp; </p>
 </div>
 
 

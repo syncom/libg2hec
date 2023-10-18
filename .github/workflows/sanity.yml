@@ -1,16 +1,39 @@
-# Shellcheck: Opinionated shell script analysis
-name: "Shellcheck"
-
-on:
+name: Sanity Checks
+on: 
   push:
-    branches: [master]
+    branches:
+      - master
   pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [master]
-
+    branches:
+      - master
 jobs:
+  build-libg2hec-linux:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        compiler_c: [gcc, clang]
+        compiler_cxx: [g++, clang++]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y texinfo
+          sudo apt install -y texlive-latex-extra
+          sudo apt install -y autotools-dev autoconf build-essential bear
+      - name: Build
+        env:
+          CC: ${{ matrix.compiler_c }}
+          CXX: ${{ matrix.compiler_cxx }}
+        run: |
+          cd ${{ github.workspace }}
+          autoreconf -vi
+          ./scripts/build.sh distcheck
+
   shellcheck:
-    name: "shellcheck"
+    name: 'shellcheck'
     strategy:
       fail-fast: false
       # Run on Linux and macos

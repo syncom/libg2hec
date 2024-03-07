@@ -16,7 +16,7 @@ jobs:
         compiler_cxx: [g++, clang++]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4.1.1
       - name: Install dependencies
         run: |
           sudo apt update

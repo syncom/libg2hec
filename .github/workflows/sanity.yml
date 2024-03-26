@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-22.04]
         compiler_c: [gcc, clang]
         compiler_cxx: [g++, clang++]
     steps:

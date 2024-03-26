@@ -11,7 +11,7 @@ on:
 jobs:
   sacheck:
     name: "Clang Static Analysis"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     defaults:
       run:
         shell: bash -euxo pipefail {0}

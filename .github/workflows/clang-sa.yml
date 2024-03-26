@@ -1,5 +1,5 @@
 # Static analysis via clang static analyzer
-name: "Clang Static Analysis"
+name: 'Clang Static Analysis'
 
 on:
   push:
@@ -10,16 +10,18 @@ on:
 
 jobs:
   sacheck:
-    name: "Clang Static Analysis"
-    runs-on: ubuntu-22.04
+    name: 'Clang Static Analysis'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-22.04]
     defaults:
       run:
         shell: bash -euxo pipefail {0}
-    strategy:
-      fail-fast: false
 
     steps:
-    - name: Checkout repository
+    - name: 'Checkout repository'
       uses: actions/checkout@v4.1.1
       with:
         # We must fetch at least the immediate parents so that if this is
@@ -27,7 +29,7 @@ jobs:
         fetch-depth: 2
         submodules: 'recursive'
 
-    - name: Install dependencies
+    - name: 'Install dependencies'
       run: |
         sudo apt update
         sudo apt install -y texinfo texlive-latex-extra
@@ -36,7 +38,7 @@ jobs:
         sudo ln -sf /usr/bin/clang-check-14 /usr/bin/clang-check
 
     # Run static analysis
-    - name: Run clang static analysis
+    - name: 'Run clang static analysis'
       run: |
         cd ${{ github.workspace }}
         autoreconf -vi

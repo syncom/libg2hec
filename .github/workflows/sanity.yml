@@ -41,20 +41,20 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: 'Checkout repository'
+        uses: actions/checkout@v4.1.1
       - if: ${{ matrix.os == 'ubuntu-latest' }}
-        name: Install shellcheck on Ubuntu
+        name: 'Install shellcheck on Ubuntu'
         run: |
           sudo apt update
           sudo apt install shellcheck -y
 
       - if: ${{ matrix.os == 'macos-latest' }}
-        name: Install shellcheck on macos
+        name: 'Install shellcheck on macOS'
         run: |
           brew install shellcheck
 
-      - name: Run shellcheck
+      - name: 'Run shellcheck'
         run: |
           set -euxo pipefail
           cd ${{ github.workspace }}/

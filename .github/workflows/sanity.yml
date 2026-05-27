@@ -11,12 +11,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-22.04]
+        os: [ubuntu-26.04]
         compiler_c: [gcc, clang]
         compiler_cxx: [g++, clang++]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        # v6.0.2
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
       - name: Install dependencies
         run: |
           sudo apt update
@@ -42,7 +43,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: 'Checkout repository'
-        uses: actions/checkout@v4.1.1
+        # v6.0.2
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
       - if: ${{ matrix.os == 'ubuntu-latest' }}
         name: 'Install shellcheck on Ubuntu'
         run: |

@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.1, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Divisor arithmetic (The Genus 2 Crypto C++ Library v1.0.1)</title>
@@ -18,21 +18,8 @@
 <link href="Divisor-functions.html" rel="prev" title="Divisor functions">
 <style type="text/css">
 <!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
 -->
 </style>
 
@@ -40,19 +27,19 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="chapter" id="Divisor-arithmetic">
-<div class="header">
+<div class="chapter-level-extent" id="Divisor-arithmetic">
+<div class="nav-panel">
 <p>
 Next: <a href="I_002fO.html" accesskey="n" rel="next">I/O</a>, Previous: <a href="Divisor-functions.html" accesskey="p" rel="prev">Divisor functions</a>, Up: <a href="index.html" accesskey="u" rel="up">Preface</a> &nbsp; </p>
 </div>
 <hr>
-<span id="Divisor-arithmetic-1"></span><h2 class="chapter">7 Divisor arithmetic</h2>
-<p>The divisor operations are <b>addition, negation, subtraction</b> and 
-<b>scalar multiplication</b>.
+<h2 class="chapter" id="Divisor-arithmetic-1"><span>7 Divisor arithmetic<a class="copiable-link" href="#Divisor-arithmetic-1"> &para;</a></span></h2>
+<p>The divisor operations are <b class="b">addition, negation, subtraction</b> and 
+<b class="b">scalar multiplication</b>.
 </p>
 <br>
-<p>The divisor arithmetic is implemented using the <b>explicit formulas</b>, which 
-is supposed to be faster than the generic one via <b>Cantor&rsquo;s algorithm</b>, for
+<p>The divisor arithmetic is implemented using the <b class="b">explicit formulas</b>, which 
+is supposed to be faster than the generic one via <b class="b">Cantor&rsquo;s algorithm</b>, for
 the most common cases of the divisor operations.  The Cantor&rsquo;s algorithm is
 also implemented in G2HEC and used to handle special cases that rarely happen
 in cryptographic applications.
@@ -62,53 +49,53 @@ in cryptographic applications.
 below in both their procedure and operator version (if both version exist).
 </p>
 <br>
-<p><code>bool_t add_cantor(divisor&amp; x, const divisor&amp; a, const divisor&amp; b)</code>:</p><br>
-<p>This is the Cantor&rsquo;s algorithm which computes <code>x = a + b</code>.
+<p><code class="code">bool_t add_cantor(divisor&amp; x, const divisor&amp; a, const divisor&amp; b)</code>:</p><br>
+<p>This is the Cantor&rsquo;s algorithm which computes <code class="code">x = a + b</code>.
 </p>
 <br>
-<p><code>bool_t add((divisor&amp; x, const divisor&amp; a, const divisor&amp; b)</code>,</p><br>
-<p><code>divisor operator+(const divisor&amp; a, const divisor&amp; b)</code>: </p><br>
-<p>compute <code>x = a + b</code> via explicit formulas; special cases handled by 
-calling <code>add_cantor()</code>.
+<p><code class="code">bool_t add((divisor&amp; x, const divisor&amp; a, const divisor&amp; b)</code>,</p><br>
+<p><code class="code">divisor operator+(const divisor&amp; a, const divisor&amp; b)</code>: </p><br>
+<p>compute <code class="code">x = a + b</code> via explicit formulas; special cases handled by 
+calling <code class="code">add_cantor()</code>.
 </p>
 <br>
-<p><code>bool_t sub((divisor&amp; x, const divisor&amp; a, const divisor&amp; b)</code>,</p><br>
-<p><code>divisor operator-(const divisor&amp; a, const divisor&amp; b)</code>: </p><br>
-<p>compute <code>x = a - b</code>.
+<p><code class="code">bool_t sub((divisor&amp; x, const divisor&amp; a, const divisor&amp; b)</code>,</p><br>
+<p><code class="code">divisor operator-(const divisor&amp; a, const divisor&amp; b)</code>: </p><br>
+<p>compute <code class="code">x = a - b</code>.
 </p>
 <br>
-<p><code>bool_t dnegate(divisor&amp; x, const divisor&amp; a)</code>, </p><br>
-<p><code>divisor operator-(const divisor&amp; a)</code>: </p><br>
-<p>compute <code>x = -a</code>.
+<p><code class="code">bool_t dnegate(divisor&amp; x, const divisor&amp; a)</code>, </p><br>
+<p><code class="code">divisor operator-(const divisor&amp; a)</code>: </p><br>
+<p>compute <code class="code">x = -a</code>.
 </p>
 <br>
-<p><code>scalar_mul(divisor&amp; x, const divisor&amp; a, const ZZ&amp; n,  bool_t (*method)(divisor&amp;, const divisor&amp;, const ZZ&amp;))</code>, </p><br>
-<p><code>scalar_mul(divisor&amp; x, const divisor&amp; a, long n,  bool_t (*method)(divisor&amp;, const divisor&amp;, const ZZ&amp;))</code>: </p><br>
-<p>compute <code>x = [n]a</code> using a method specified by <code>method</code>.  Currently,
+<p><code class="code">scalar_mul(divisor&amp; x, const divisor&amp; a, const ZZ&amp; n,  bool_t (*method)(divisor&amp;, const divisor&amp;, const ZZ&amp;))</code>, </p><br>
+<p><code class="code">scalar_mul(divisor&amp; x, const divisor&amp; a, long n,  bool_t (*method)(divisor&amp;, const divisor&amp;, const ZZ&amp;))</code>: </p><br>
+<p>compute <code class="code">x = [n]a</code> using a method specified by <code class="code">method</code>.  Currently,
 three methods are provided by G2HEC:
-</p><ol>
-<li> <code>SAM</code>: sum-and-square method
+</p><ol class="enumerate">
+<li> <code class="code">SAM</code>: sum-and-square method
 
-</li><li> <code>NAF</code>: method using non-adjacent forms
+</li><li> <code class="code">NAF</code>: method using non-adjacent forms
 
-</li><li> <code>ML</code>: method of the <b>Montgomery&rsquo;s ladder</b>; used to resist side-channel 
+</li><li> <code class="code">ML</code>: method of the <b class="b">Montgomery&rsquo;s ladder</b>; used to resist side-channel 
 attacks.
 </li></ol>
 <br>
-<p>Setting <code>method</code> to <code>NULL</code> performs scalar multiplication via 
-<code>SAM</code>.
+<p>Setting <code class="code">method</code> to <code class="code">NULL</code> performs scalar multiplication via 
+<code class="code">SAM</code>.
 </p>
 
 <br>
-<p><code>divisor operator*(const ZZ&amp; n, const divisor&amp; a)</code>, </p><br>
-<p><code>divisor operator*(const divisor&amp; a, const ZZ&amp; n)</code>, </p><br>
-<p><code>divisor operator*(long n, const divisor&amp; a)</code>, </p><br>
-<p><code>divisor operator*(const divisor&amp; a, long n)</code>: </p><br>
-<p>return <code>[n]a</code>. <code>SAM</code> is used for scalar multiplication.
+<p><code class="code">divisor operator*(const ZZ&amp; n, const divisor&amp; a)</code>, </p><br>
+<p><code class="code">divisor operator*(const divisor&amp; a, const ZZ&amp; n)</code>, </p><br>
+<p><code class="code">divisor operator*(long n, const divisor&amp; a)</code>, </p><br>
+<p><code class="code">divisor operator*(const divisor&amp; a, long n)</code>: </p><br>
+<p>return <code class="code">[n]a</code>. <code class="code">SAM</code> is used for scalar multiplication.
 </p>
 </div>
 <hr>
-<div class="header">
+<div class="nav-panel">
 <p>
 Next: <a href="I_002fO.html">I/O</a>, Previous: <a href="Divisor-functions.html">Divisor functions</a>, Up: <a href="index.html">Preface</a> &nbsp; </p>
 </div>

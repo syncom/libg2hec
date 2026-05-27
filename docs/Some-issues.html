@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.1, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Some issues (The Genus 2 Crypto C++ Library v1.0.1)</title>
@@ -17,21 +17,8 @@
 <link href="Randomness-functions.html" rel="prev" title="Randomness functions">
 <style type="text/css">
 <!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
 -->
 </style>
 
@@ -39,17 +26,17 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="chapter" id="Some-issues">
-<div class="header">
+<div class="chapter-level-extent" id="Some-issues">
+<div class="nav-panel">
 <p>
 Previous: <a href="Randomness-functions.html" accesskey="p" rel="prev">Randomness functions</a>, Up: <a href="index.html" accesskey="u" rel="up">Preface</a> &nbsp; </p>
 </div>
 <hr>
-<span id="Some-issues-1"></span><h2 class="chapter">10 Some issues</h2>
+<h2 class="chapter" id="Some-issues-1"><span>10 Some issues<a class="copiable-link" href="#Some-issues-1"> &para;</a></span></h2>
 
 <p>Most functions in the G2HEC are reentrant, with exception of functions
 that set the associate curve for a divisor, such as
-<code>divisor::set_curve</code> and a constructor of the <code>divisor</code> class.
+<code class="code">divisor::set_curve</code> and a constructor of the <code class="code">divisor</code> class.
 It is considered an unchecked programming error to change the associated
 curve when performing divisor operations.
 </p>

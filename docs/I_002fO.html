@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.1, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>I/O (The Genus 2 Crypto C++ Library v1.0.1)</title>
@@ -18,21 +18,9 @@
 <link href="Divisor-arithmetic.html" rel="prev" title="Divisor arithmetic">
 <style type="text/css">
 <!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
+span:hover a.copiable-link {visibility: visible}
 -->
 </style>
 
@@ -40,56 +28,56 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="chapter" id="I_002fO">
-<div class="header">
+<div class="chapter-level-extent" id="I_002fO">
+<div class="nav-panel">
 <p>
 Next: <a href="Randomness-functions.html" accesskey="n" rel="next">Randomness functions</a>, Previous: <a href="Divisor-arithmetic.html" accesskey="p" rel="prev">Divisor arithmetic</a>, Up: <a href="index.html" accesskey="u" rel="up">Preface</a> &nbsp; </p>
 </div>
 <hr>
-<span id="I_002fO-1"></span><h2 class="chapter">8 I/O</h2>
+<h2 class="chapter" id="I_002fO-1"><span>8 I/O<a class="copiable-link" href="#I_002fO-1"> &para;</a></span></h2>
 <p>G2HEC exports several functions to output of polynomials, curves and divisors.
 They might be more useful for mathematics research on genus 2 curves over 
 finite fields than for implementation of cryptographic protocols.  For sake of 
 completeness, we briefly introduce them here.
 </p>
 <br>
-<p><code>void print_poly(poly_t&amp; poly, std::ostream *s)</code>: </p><br>
-<p>directs a natural representation of polynomial <code>poly</code> to <code>s</code>. 
+<p><code class="code">void print_poly(poly_t&amp; poly, std::ostream *s)</code>: </p><br>
+<p>directs a natural representation of polynomial <code class="code">poly</code> to <code class="code">s</code>. 
 </p>
 <br>
-<p>For example, calling <code>print_poly(f, cout)</code> will display in the standard
+<p>For example, calling <code class="code">print_poly(f, cout)</code> will display in the standard
 output
 </p><div class="example">
-<pre class="example">x^5 + 3*x^2 + x
+<pre class="example-preformatted">x^5 + 3*x^2 + x
 </pre></div>
-<p>if <code>f</code> is a <code>poly_t</code> object representing 
-<em class='math'>f(x) = x^5 + 3 x^2 + x</em>.
+<p>if <code class="code">f</code> is a <code class="code">poly_t</code> object representing 
+<em class="math">f(x) = x^5 + 3 x^2 + x</em>.
 </p>
 <br>
-<p>Calling <code>cout &lt;&lt; curve; </code> will display in the standard output 
+<p>Calling <code class="code">cout &lt;&lt; curve; </code> will display in the standard output 
 something like
 </p><div class="example">
-<pre class="example">Curve: y^2 + h(x)*y = f(x)
+<pre class="example-preformatted">Curve: y^2 + h(x)*y = f(x)
        h(x) = 0
        f(x) = x^5 + 1
        Genus 2 curve is nonsingular
 
 </pre></div>
-<p>if <code>curve</code> is a valid genus 2 curve, or 
+<p>if <code class="code">curve</code> is a valid genus 2 curve, or 
 </p><div class="example">
-<pre class="example">Curve: y^2 + h(x)*y = f(x)
+<pre class="example-preformatted">Curve: y^2 + h(x)*y = f(x)
        h(x) = 0
        f(x) = x^2
        Curve is singular, or not genus 2, or f(x) is not monic
 
 </pre></div>
-<p>if <code>curve</code> is not valid.
+<p>if <code class="code">curve</code> is not valid.
 </p>
 <br>
-<p>Calling <code>cout &lt;&lt; divisor; </code> will display in the standard output
+<p>Calling <code class="code">cout &lt;&lt; divisor; </code> will display in the standard output
 something like
 </p><div class="example">
-<pre class="example">###
+<pre class="example-preformatted">###
 Divisor [u(x), v(x)] for Jacobian group of curve y^2 + h(x)*y = f(x).
 Curve: y^2 + h(x)*y = f(x)
        h(x) = 0
@@ -102,9 +90,9 @@ Curve: y^2 + h(x)*y = f(x)
 ###
 
 </pre></div>
-<p>if <code>divisor</code> is a valid divisor, or
+<p>if <code class="code">divisor</code> is a valid divisor, or
 </p><div class="example">
-<pre class="example">###
+<pre class="example-preformatted">###
 Divisor [u(x), v(x)] for Jacobian group of curve y^2 + h(x)*y = f(x).
 Curve: y^2 + h(x)*y = f(x)
        h(x) = 0
@@ -117,8 +105,13 @@ Curve: y^2 + h(x)*y = f(x)
 ###
 
 </pre></div>
-<p>if <code>divisor</code> is not valid.
+<p>if <code class="code">divisor</code> is not valid.
 </p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Randomness-functions.html">Randomness functions</a>, Previous: <a href="Divisor-arithmetic.html">Divisor arithmetic</a>, Up: <a href="index.html">Preface</a> &nbsp; </p>
 </div>
 
 

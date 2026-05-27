@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.1, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Randomness functions (The Genus 2 Crypto C++ Library v1.0.1)</title>
@@ -18,21 +18,9 @@
 <link href="I_002fO.html" rel="prev" title="I/O">
 <style type="text/css">
 <!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.center {text-align:center}
+span:hover a.copiable-link {visibility: visible}
 -->
 </style>
 
@@ -40,58 +28,58 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="chapter" id="Randomness-functions">
-<div class="header">
+<div class="chapter-level-extent" id="Randomness-functions">
+<div class="nav-panel">
 <p>
 Next: <a href="Some-issues.html" accesskey="n" rel="next">Some issues</a>, Previous: <a href="I_002fO.html" accesskey="p" rel="prev">I/O</a>, Up: <a href="index.html" accesskey="u" rel="up">Preface</a> &nbsp; </p>
 </div>
 <hr>
-<span id="Randomness-functions-1"></span><h2 class="chapter">9 Randomness functions</h2>
+<h2 class="chapter" id="Randomness-functions-1"><span>9 Randomness functions<a class="copiable-link" href="#Randomness-functions-1"> &para;</a></span></h2>
 <p>The G2HEC library uses NTL&rsquo;s pseudo-random number generator for generating
 functions that output random values.  It is recommended to override the 
 default seed by calling
-</p><div align="center"><code>NTL::SetSeed( seed )</code>
-</div><p>to set the PRNG seed using a <code>ZZ</code> object <code>seed</code> if you are to
+</p><div class="center"><code class="code">NTL::SetSeed( seed )</code>
+</div><p>to set the PRNG seed using a <code class="code">ZZ</code> object <code class="code">seed</code> if you are to
 do serious cryptographic applications which use the G2HEC&rsquo;s randomness 
 functions.
 </p>
 <br>
-<p>The G2HEC library exports in <code>include/g2hec_rand.h</code> a function 
-</p><div align="center"><code>ZZ g2hec_rand()</code>,
-</div><p>which obtains a random <code>ZZ</code> object of 128-bit integer by trying
+<p>The G2HEC library exports in <code class="code">include/g2hec_rand.h</code> a function 
+</p><div class="center"><code class="code">ZZ g2hec_rand()</code>,
+</div><p>which obtains a random <code class="code">ZZ</code> object of 128-bit integer by trying
 to use the file /dev/urandom as a source of random bits; if it fails, 
 then 0 is returned.
 </p>
 <br>
 <p>User can set its own random seed, or call 
-</p><div align="center"><code>NTL::SetSeed(g2hec_rand())</code>
+</p><div class="center"><code class="code">NTL::SetSeed(g2hec_rand())</code>
 </div><p>to generate one.
 </p>
 <br>
-<p>The class <code>g2hcurve</code> has a member function to generate a random 
+<p>The class <code class="code">g2hcurve</code> has a member function to generate a random 
 valid genus 2 curve.
 </p>
 <br>
-<p><code>g2hcurve&amp; random()</code>: </p><br>
+<p><code class="code">g2hcurve&amp; random()</code>: </p><br>
 <p>generates a random valid genus 2 curve.
 </p>
 <br>
-<p>The class <code>divisor</code> has two member functions to generate random
+<p>The class <code class="code">divisor</code> has two member functions to generate random
 valid divisors, if the associated curve is valid.
 </p>
 <br>
-<p><code>divisor&amp; random()</code>: </p><br>
+<p><code class="code">divisor&amp; random()</code>: </p><br>
 <p>If the associated curve is valid, sets the divisor to a random valid
-divisor of degree 2, i.e., <em class='math'>\deg{u} = 2</em>.
+divisor of degree 2, i.e., <em class="math">\deg{u} = 2</em>.
 </p>
 <br>
-<p><code>divisor&amp; random(divdeg_t dgr)</code>: </p><br>
+<p><code class="code">divisor&amp; random(divdeg_t dgr)</code>: </p><br>
 <p>If the associated curve is valid, sets divisor to a random valid divisor
-of degree <code>dgr</code>, where <code>dgr</code> takes values 1 (DEGREE_1) or
+of degree <code class="code">dgr</code>, where <code class="code">dgr</code> takes values 1 (DEGREE_1) or
 2 (DEGREE_2).
 </p>
 <br>
-<p>Note that <code>divisor.random()</code> never returns a unit divisor <em class='math'>[1, 0]</em>.
+<p>Note that <code class="code">divisor.random()</code> never returns a unit divisor <em class="math">[1, 0]</em>.
 </p>
 </div>
 

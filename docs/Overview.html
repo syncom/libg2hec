@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.1, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Overview (The Genus 2 Crypto C++ Library v1.0.1)</title>
@@ -18,21 +18,9 @@
 <link href="index.html" rel="prev" title="Top">
 <style type="text/css">
 <!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.center {text-align:center}
+span:hover a.copiable-link {visibility: visible}
 -->
 </style>
 
@@ -40,19 +28,19 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="chapter" id="Overview">
-<div class="header">
+<div class="chapter-level-extent" id="Overview">
+<div class="nav-panel">
 <p>
 Next: <a href="Installation.html" accesskey="n" rel="next">Installation</a>, Previous: <a href="index.html" accesskey="p" rel="prev">Preface</a>, Up: <a href="index.html" accesskey="u" rel="up">Preface</a> &nbsp; </p>
 </div>
 <hr>
-<span id="Overview-1"></span><h2 class="chapter">1 Overview</h2>
-<ul class="section-toc">
+<h2 class="chapter" id="Overview-1"><span>1 Overview<a class="copiable-link" href="#Overview-1"> &para;</a></span></h2>
+<ul class="mini-toc">
 <li><a href="#What-is-G2HEC_003f" accesskey="1">What is G2HEC?</a></li>
 <li><a href="#Genus-2-curve-basics" accesskey="2">Genus 2 curve basics</a></li>
 </ul>
-<div class="section" id="What-is-G2HEC_003f">
-<h3 class="section">1.1 What is G2HEC?</h3>
+<div class="section-level-extent" id="What-is-G2HEC_003f">
+<h3 class="section"><span>1.1 What is G2HEC?<a class="copiable-link" href="#What-is-G2HEC_003f"> &para;</a></span></h3>
 <p>The G2HEC (Genus 2 HyperElliptic Curve) library is a free portable C++ library 
 providing divisor group operations in the Jacobian of genus 2 (imaginary) 
 hyperelliptic curve.  Such curves can be used for discrete-logarithm-based 
@@ -80,70 +68,70 @@ knowledge of genus 2 curve is needed to used the library.
 file COPYING for details.
 </p> 
 <br>
-<p>The G2HEC library homepage: <a href="https://github.com/syncom/libg2hec/">https://github.com/syncom/libg2hec/</a>.
+<p>The G2HEC library homepage: <a class="url" href="https://github.com/syncom/libg2hec/">https://github.com/syncom/libg2hec/</a>.
 </p>
 <br>
-<p>The NTL library homepage: <a href="http://www.shoup.net/ntl/">http://www.shoup.net/ntl/</a>.
+<p>The NTL library homepage: <a class="url" href="http://www.shoup.net/ntl/">http://www.shoup.net/ntl/</a>.
 </p>
 <br>
-<p>The GMP library homepage: <a href="http://www.swox.com/gmp/">http://www.swox.com/gmp/</a>.
+<p>The GMP library homepage: <a class="url" href="http://www.swox.com/gmp/">http://www.swox.com/gmp/</a>.
 </p>
 </div>
-<div class="section" id="Genus-2-curve-basics">
-<h3 class="section">1.2 Genus 2 curve basics</h3>
+<div class="section-level-extent" id="Genus-2-curve-basics">
+<h3 class="section"><span>1.2 Genus 2 curve basics<a class="copiable-link" href="#Genus-2-curve-basics"> &para;</a></span></h3>
 <p>Our object of interest, a genus 2 curve, is a nonsingular algebraic curve 
-</p><div align="center"><em class='math'>C: y^2 + h(x)y = f(x)</em>
-</div><p>over a finite field <em class='math'>GF(q)</em>, where <em class='math'>f(x)</em> is monic (i.e., 
-has leading coefficient 1) of degree 5, <em class='math'>h(x)</em> has degree not greater
-than 2, <em class='math'>q</em> is a prime or a power of a prime.
+</p><div class="center"><em class="math">C: y^2 + h(x)y = f(x)</em>
+</div><p>over a finite field <em class="math">GF(q)</em>, where <em class="math">f(x)</em> is monic (i.e., 
+has leading coefficient 1) of degree 5, <em class="math">h(x)</em> has degree not greater
+than 2, <em class="math">q</em> is a prime or a power of a prime.
 </p>
 <br>
-<p>Currently (version 1.0.1) G2HEC only supports odd prime <em class='math'>q</em> by default. 
-You can &ldquo;hack&rdquo; the header file in <code>include/g2hec_nsfieldtype.h</code> to 
-switch its support to <em class='math'>q</em> as a power of an odd prime.  However, we do not 
+<p>Currently (version 1.0.1) G2HEC only supports odd prime <em class="math">q</em> by default. 
+You can &ldquo;hack&rdquo; the header file in <code class="code">include/g2hec_nsfieldtype.h</code> to 
+switch its support to <em class="math">q</em> as a power of an odd prime.  However, we do not 
 recommend to do so and it should be avoided except in extreme cases. So far 
-the library is tested only for odd prime numbers <em class='math'>q</em>.
+the library is tested only for odd prime numbers <em class="math">q</em>.
 </p>
 <br>
-<p>There is currently no &ldquo;hack&rdquo; to have field types <code>GF2</code> and <code>GF2E</code>
+<p>There is currently no &ldquo;hack&rdquo; to have field types <code class="code">GF2</code> and <code class="code">GF2E</code>
 supported (curve singularity test does not work for characteristic 2 yet).  
 Support for characteristic 2 maybe added in the future.
 </p>
 <br>
-<p>A pair <em class='math'>(x_0, y_0)</em> with <em class='math'>x_0, y_0\in GF(q)</em> such that 
-<em class='math'>x = x_0</em> and <em class='math'>y = y_0</em> give a solution to the curve equation of
-<em class='math'>C</em> is called a <b><em class='math'>GF(q)</em>-rational point of the genus 2 curve 
-<em class='math'>C</em></b>.
-Obviously, <em class='math'>C</em> has only finitely many <em class='math'>GF(q)</em>-rational points.  
-Unlike the case of elliptic curves, the set of <em class='math'>GF(q)</em>-rational points 
-of the curve <em class='math'>C</em> does not naturally hold a group structure, therefore they
+<p>A pair <em class="math">(x_0, y_0)</em> with <em class="math">x_0, y_0\in GF(q)</em> such that 
+<em class="math">x = x_0</em> and <em class="math">y = y_0</em> give a solution to the curve equation of
+<em class="math">C</em> is called a <b class="b"><em class="math">GF(q)</em>-rational point of the genus 2 curve 
+<em class="math">C</em></b>.
+Obviously, <em class="math">C</em> has only finitely many <em class="math">GF(q)</em>-rational points.  
+Unlike the case of elliptic curves, the set of <em class="math">GF(q)</em>-rational points 
+of the curve <em class="math">C</em> does not naturally hold a group structure, therefore they
 cannot be used directly to do discrete-logarithm-based cryptography. 
-Instead, we choose to use the <b><em class='math'>GF(q)</em>-rational points of the Jacobian</b> 
+Instead, we choose to use the <b class="b"><em class="math">GF(q)</em>-rational points of the Jacobian</b> 
 of the curve
-<em class='math'>C</em>, which is a finite group, to achieve our (cryptographic) goal. 
+<em class="math">C</em>, which is a finite group, to achieve our (cryptographic) goal. 
 It is not necessary for the users of the G2HEC library know how the Jacobian
 of a genus 2 curve is defined, given the following two facts:
-</p><ol>
-<li> The <em class='math'>GF(q)</em>-rational points of the Jacobian of a genus 2 curve <em class='math'>C</em>,
-<em class='math'>Jac(C, GF(q))</em>, is a finite group of size approximately <em class='math'>q^2</em>.
+</p><ol class="enumerate">
+<li> The <em class="math">GF(q)</em>-rational points of the Jacobian of a genus 2 curve <em class="math">C</em>,
+<em class="math">Jac(C, GF(q))</em>, is a finite group of size approximately <em class="math">q^2</em>.
 
-</li><li> An element of <em class='math'>Jac(C, GF(q))</em> is called a <b>divisor class</b> (<b>divisor</b>
-in short) over <em class='math'>GF(q)</em>. A divisor (class) <em class='math'>D</em> is represented by a 
-pair of polynomials <em class='math'>[u(x), v(x)]</em> over <em class='math'>GF(q)</em>. Several conditions
-need to be satisfied for a pair <em class='math'>[u(x), v(x)]</em> to be a divisor of 
-<em class='math'>C</em>.
+</li><li> An element of <em class="math">Jac(C, GF(q))</em> is called a <b class="b">divisor class</b> (<b class="b">divisor</b>
+in short) over <em class="math">GF(q)</em>. A divisor (class) <em class="math">D</em> is represented by a 
+pair of polynomials <em class="math">[u(x), v(x)]</em> over <em class="math">GF(q)</em>. Several conditions
+need to be satisfied for a pair <em class="math">[u(x), v(x)]</em> to be a divisor of 
+<em class="math">C</em>.
 </li></ol>
 
 <br>
-<p>The unit element of <em class='math'>Jac(C, GF(q))</em> is <em class='math'>[1, 0]</em>.
+<p>The unit element of <em class="math">Jac(C, GF(q))</em> is <em class="math">[1, 0]</em>.
 </p>
 <br>
-<p>By convention, the group operation in the Jacobian of the curve <em class='math'>C</em> is 
+<p>By convention, the group operation in the Jacobian of the curve <em class="math">C</em> is 
 written additively. We shall write 
-</p><div align="center"><em class='math'>D=D_1+D_2, D=D_1-D_2, D=[n]D_1</em>
-</div><p>for <b>divisor addition, divisor subtraction</b> and <b>divisor scalar 
-multiplication</b>, respectively, where <em class='math'>D=[n]D_1</em> means 
-<em class='math'>D=D_1+D_1+...+D_1</em> for <em class='math'>n</em> times.
+</p><div class="center"><em class="math">D=D_1+D_2, D=D_1-D_2, D=[n]D_1</em>
+</div><p>for <b class="b">divisor addition, divisor subtraction</b> and <b class="b">divisor scalar 
+multiplication</b>, respectively, where <em class="math">D=[n]D_1</em> means 
+<em class="math">D=D_1+D_1+...+D_1</em> for <em class="math">n</em> times.
 </p> 
 <br>
 <p>More information about the math background of the Jacobian of genus 2 curves 
@@ -161,7 +149,7 @@ intent is to make the library useful for both mathematicians and cryptographers
 </div>
 </div>
 <hr>
-<div class="header">
+<div class="nav-panel">
 <p>
 Next: <a href="Installation.html">Installation</a>, Previous: <a href="index.html">Preface</a>, Up: <a href="index.html">Preface</a> &nbsp; </p>
 </div>

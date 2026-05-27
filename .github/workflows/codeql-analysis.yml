@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-22.04]
+        os: [ubuntu-24.04]
         compiler_c: [gcc]
         compiler_cxx: [g++]
         language: [ 'cpp' ]
@@ -27,7 +27,8 @@ jobs:
 
     steps:
     - name: 'Checkout repository'
-      uses: actions/checkout@v4.1.1
+      # v6.0.2
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
     # Initializes the CodeQL tools for scanning.
     - name: 'Initialize CodeQL'
@@ -52,4 +53,5 @@ jobs:
         ./scripts/build.sh 
 
     - name: 'Perform CodeQL analysis'
-      uses: github/codeql-action/analyze@v2
+      # v2.25.5
+      uses: github/codeql-action/analyze@v84498526a009a99c875e83ef4821a8ba52de7c22

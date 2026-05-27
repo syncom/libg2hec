@@ -53,4 +53,5 @@ jobs:
         ./scripts/build.sh 
 
     - name: 'Perform CodeQL analysis'
-      uses: github/codeql-action/analyze@v2.25.5
+      # v2.25.5
+      uses: github/codeql-action/analyze@v84498526a009a99c875e83ef4821a8ba52de7c22

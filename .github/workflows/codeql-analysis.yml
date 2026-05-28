@@ -2,10 +2,11 @@ name: 'CodeQL'
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ master ]
+    branches:
+      - master
   schedule:
     - cron: '45 0 * * 1'
 
@@ -32,7 +33,8 @@ jobs:
 
     # Initializes the CodeQL tools for scanning.
     - name: 'Initialize CodeQL'
-      uses: github/codeql-action/init@v2
+      # v4.36.0
+      uses: github/codeql-action/init@7211b7c8077ea37d8641b6271f6a365a22a5fbfa
       with:
         languages: ${{ matrix.language }}
 
@@ -53,5 +55,5 @@ jobs:
         ./scripts/build.sh 
 
     - name: 'Perform CodeQL analysis'
-      # v2.25.5
-      uses: github/codeql-action/analyze@v84498526a009a99c875e83ef4821a8ba52de7c22
+      # v4.36.0
+      uses: github/codeql-action/analyze@7211b7c8077ea37d8641b6271f6a365a22a5fbfa
